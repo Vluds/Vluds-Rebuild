@@ -9,13 +9,36 @@
 #accounts-container
 {
 	width: 100%;
-	overflow: hidden;
 }
 
 .account
 {
 	height: 136px;
 	margin-bottom: -136px;
+	position: relative;
+}
+
+#egg_jump
+{
+	position: absolute;
+	top: 90%;
+	right: 50%;
+	margin-right: -80px;
+	background-color: rgba(245, 245, 245, 1);
+	border: 1px solid rgba(37, 199, 125, 1);
+	border-radius: 7px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-rigth: 5px;
+	overflow: hidden;
+
+	display: none;
+}
+#egg_jump p
+{
+	color: rgba(37, 199, 125, 1);
+	font-size: 0.8em;
 }
 
 #text-container

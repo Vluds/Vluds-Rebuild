@@ -1,3 +1,9 @@
+<?php
+	session_start();
+
+	require("src/php/class/bdd.php");
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,7 +16,8 @@
 		<script src="src/js/lib/jquery.min-1.11.1.js"></script>
 		<script src="src/js/lib/jquery-ui.min.js"></script>
 		<script src="src/js/lib/JLight.js"></script>
-		<script src="src/js/lib/JAjax.js"></script>
+
+		<script src="src/js/JAjax.js"></script>
 	</head>
 
 	<body>
@@ -22,7 +29,7 @@
 			</nav>
 		</header>
 
-		<section>
+		<section id="ajax-container">
 			<div class="align-middle"></div>
 
 			<div id="index-container">
@@ -31,6 +38,8 @@
 						<div class="avatar">
 							<img src="img/avatar.png">
 						</div>
+
+						<div id="egg_jump"><p>Hé, stop ! Je suis crevé là ...</div>
 					</div>
 				</div>
 
@@ -40,7 +49,7 @@
 				</div>
 
 				<div id="options-container">
-					<div class="button">
+					<div onClick="loadModel('register')" class="button">
 						<p>Créer un compte</p>
 					</div>
 
