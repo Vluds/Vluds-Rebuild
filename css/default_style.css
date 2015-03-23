@@ -70,11 +70,13 @@ li
 	vertical-align: middle;
 }
 
-a
+.a
 {
 	color: rgba(30, 30, 30, 0.9);
+	text-decoration: underline;
+	cursor: pointer;
 }
-a p
+.a p
 {
 	font-size: 14px;
 	color: rgba(30, 30, 30, 0.9);

@@ -24,7 +24,7 @@
 		<header>
 			<nav>
 				<ul>
-					<li id="logo"><h1>Vluds</h1></li>
+					<li id="logo" onClick="loadModel('home')"><h1>Vluds</h1></li>
 				</ul>
 			</nav>
 		</header>
@@ -54,7 +54,7 @@
 					</div>
 
 					<div id="link-container">
-						<a href=""><p>Je possède déjà un compte</p></a>
+						<span class="a" onClick="loadModel('login')"><p>Je possède déjà un compte</p></span>
 					</div>
 				</div>
 			</div>

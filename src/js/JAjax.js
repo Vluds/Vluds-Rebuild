@@ -1,7 +1,7 @@
 function loadModel(modelName)
 {
 	$("#ajax-container").stop().fadeOut(200).queue(function() {
-		$(this).html("<h3>Fini !</h3>");
+		$(this).html("Chargement ...");
 
 		$.post("src/php/executor.php", { action: "loadModel", modelName: modelName}, function(data)
 		{
