@@ -1,0 +1,34 @@
+#index-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 440px;
+}
+
+#accounts-container
+{
+	width: 100%;
+	overflow: hidden;
+}
+
+.account
+{
+
+}
+
+#text-container
+{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#options-container
+{
+	text-align: center;
+}
+
+#options-container #link-container
+{
+	margin-top: 10px;
+}
