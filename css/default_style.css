@@ -100,6 +100,8 @@ header
 	padding-left: 40px;
 	position: fixed;
 	z-index: 5;
+
+	display: none;
 }
 
 #logo
@@ -109,6 +111,7 @@ header
 	/*background-image: url('../img/logo.png');*/
 	background-position: center center; 
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 section
@@ -116,6 +119,8 @@ section
 	width: 100%;
 	height: 100%;
 	text-align: center;
+
+	display: none;
 }
 
 .account .avatar
@@ -148,11 +153,15 @@ section
 	min-width: 160px;
 	height: 40px;
 	border-radius: 6px;
-	background-color: rgba(37, 199, 125, 1);
+	background-color: transparent;
 	border: 1px solid rgba(37, 199, 125, 1);
 	line-height: 40px;
 	box-sizing: border-box;
 	margin: auto;
 	cursor: pointer;
 	overflow: hidden;
+}
+.button p
+{
+	color: rgba(37, 199, 125, 1);
 }

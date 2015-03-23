@@ -14,13 +14,15 @@
 
 .account
 {
-
+	height: 136px;
+	margin-bottom: -136px;
 }
 
 #text-container
 {
 	text-align: center;
 	margin-bottom: 30px;
+	background-color: rgba(245, 245, 245, 1);
 }
 
 #options-container
