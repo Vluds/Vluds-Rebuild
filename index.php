@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="css/default_style.css">
 		<link rel="stylesheet" type="text/css" href="css/home_style.css">
 
+		<link rel="icon" href="img/favicon.ico" />
+
 		<!-- Script -->
 		<script src="src/js/lib/jquery.min-1.11.1.js"></script>
 		<script src="src/js/lib/jquery-ui.min.js"></script>
@@ -60,6 +62,10 @@
 			}
 		?>
 		</section>
+
+		<footer>
+			<h4>Vluds - 2015</h4>
+		</footer>
 
 		<!--JQuery Scripts-->
 		<script src="src/js/JAnimate.js"></script>

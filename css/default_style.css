@@ -48,6 +48,15 @@ h3
 	color: rgba(30, 30, 30, 1);
 }
 
+h4
+{
+	margin: 0;
+	font-family: 'OpenSans-Light';
+	font-size: 15px;
+	font-weight: normal;
+	color: rgba(30, 30, 30, 1);
+}
+
 p
 {
 	margin: 0;
@@ -94,6 +103,7 @@ body
 	background-color: rgb(245, 245, 245);
 	height: 100%;
 	width: 100%;
+	position: relative;
 }
 
 header
@@ -137,6 +147,16 @@ section
 {
 	width: 130px;
 	height: 130px;
+}
+
+footer
+{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 0;
+	left: 0;
+	padding-bottom: 15px;
 }
 
 .align-middle
