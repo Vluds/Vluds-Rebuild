@@ -138,6 +138,7 @@ section
 	width: 100%;
 	height: 136px;
 	position: relative;
+	margin-bottom: 10px;
 }
 
 .account
@@ -204,6 +205,42 @@ footer
 	height: 100%;
 	display: inline-block;
 	vertical-align: middle;
+}
+
+#background-container
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(30, 30, 30, 0.6);
+
+	display: none;
+}
+
+.popup-box
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+	width: 300px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 7px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	box-sizing: border-box;
+
+	display: none;
+}
+.popup-box p
+{
+	color: rgba(30, 30, 30, 1);
 }
 
 .button

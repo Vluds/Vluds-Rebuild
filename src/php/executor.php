@@ -8,13 +8,15 @@
 
 	if(isset($_POST['action']) AND !empty($_POST['action']))
 	{
-		$action = $_POST['action'];
+		$newStaticBdd = new BDD();
+
+		$action = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['action']));
 
 		if($action == "loadModel")
 		{
 			if(isset($_POST['modelName']))
 			{
-				$modelName = $_POST['modelName'];
+				$modelName = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['modelName']));
 
 				$returnModel = array();
 				$returnModel = Engine::loadModel($modelName);

@@ -69,6 +69,10 @@
 			<h4>Vluds - 2015</h4>
 		</footer>
 
+		<div id="background-container">
+			<?php include('includes/cookiesPrivacy-box.php');?>
+		</div>
+
 		<!--JQuery Scripts-->
 		<script src="src/js/JAnimate.js"></script>
 		<script src="src/js/JEngine.js"></script>
