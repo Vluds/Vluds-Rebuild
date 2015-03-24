@@ -10,7 +10,7 @@
 		<meta charset="utf-8"/>
 		<title>Vluds - More Social</title>
 		<link rel="stylesheet" type="text/css" href="css/default_style.css">
-		<link rel="stylesheet" type="text/css" href="css/index_style.css">
+		<link rel="stylesheet" type="text/css" href="css/home_style.css">
 
 		<!-- Script -->
 		<script src="src/js/lib/jquery.min-1.11.1.js"></script>
@@ -30,34 +30,35 @@
 		</header>
 
 		<section id="ajax-container">
-			<div class="align-middle"></div>
-
-			<div id="index-container">
-				<div id="accounts-container">
-					<div class="account">
-						<div class="avatar">
-							<img src="img/avatar.png">
-						</div>
-
-						<div id="egg_jump"><p>Hé, stop ! Je suis crevé là ...</div>
-					</div>
-				</div>
-
-				<div id="text-container">
-					<h2>Bienvenue sur Vluds</h2>
-					<h3>Possèdez-vous déjà un compte ?</h3>
-				</div>
-
-				<div id="options-container">
-					<div onClick="loadModel('register')" class="button">
-						<p>Créer un compte</p>
-					</div>
-
-					<div id="link-container">
-						<span class="a" onClick="loadModel('login')"><p>Je possède déjà un compte</p></span>
-					</div>
-				</div>
-			</div>
+		<?php
+			if(isset($_GET['page']) AND !empty($_GET['page']))
+			{
+		?>
+				<script type="text/javascript">
+		<?php
+					if($_GET['page'] == 'home')
+					{
+		?>
+						loadModel('home');
+		<?php
+					}
+					else if ($_GET['page'] == 'register') 
+					{
+		?>
+						loadModel('register');
+		<?php
+					}
+					else if ($_GET['page'] == 'login') 
+					{
+		?>
+						loadModel('login');
+		<?php
+					}
+		?>
+				</script>
+		<?php
+			}
+		?>
 		</section>
 
 		<!--JQuery Scripts-->

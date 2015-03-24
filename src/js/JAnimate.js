@@ -1,9 +1,6 @@
 $(document).ready(function()
 {
-	$('header').stop().fadeIn(1000).queue(function(){
-		$('section').stop().fadeIn(1000);
-		$('.account').stop().animate({marginBottom: "0"}, 400).dequeue();
-	});
+	$('header').stop().fadeIn(1000);
 });
 
 $(document).on('mouseenter', '.button', function()

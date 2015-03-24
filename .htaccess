@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^home  index.php?page=home [NC,L]
+RewriteRule ^register  index.php?page=register [NC,L]
+RewriteRule ^login  index.php?page=login [NC,L]
