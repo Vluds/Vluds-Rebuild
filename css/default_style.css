@@ -170,8 +170,9 @@ section
 #text-container
 {
 	text-align: center;
-	margin-bottom: 30px;
+	padding-bottom: 30px;
 	background-color: rgba(245, 245, 245, 1);
+	margin-top: -100px;
 }
 
 #options-container
