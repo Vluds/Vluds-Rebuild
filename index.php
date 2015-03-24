@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/default_style.css">
 		<link rel="stylesheet" type="text/css" href="css/home_style.css">
 		<link rel="stylesheet" type="text/css" href="css/register_style.css">
+		<link rel="stylesheet" type="text/css" href="css/login_style.css">
 
 		<link rel="icon" href="img/favicon.ico" />
 

@@ -1,0 +1,38 @@
+#login-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 500px;
+
+	text-align: center;
+}
+
+#accounts-container
+{
+	margin-bottom: 10px;
+}
+
+#login-form
+{
+	width: 270px;
+	margin: auto;
+	background-color: rgba(245, 245, 245, 1);
+}
+#login-form ul
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#login-form ul li
+{
+	display: block;
+}
+#login-form input
+{
+	width: 100%;
+}
+#login-form #submit-container
+{
+	margin-top: 15px;
+}

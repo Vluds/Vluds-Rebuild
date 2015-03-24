@@ -10,8 +10,6 @@
 			<div class="avatar">
 				<img src="img/avatar.png">
 			</div>
-
-			<div id="egg_jump"><p>Hé, stop ! Je suis crevé là ...</div>
 		</div>
 	</div>
 
