@@ -1,0 +1,37 @@
+#register-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 500px;
+
+	text-align: center;
+}
+
+#accounts-container
+{
+	margin-bottom: 10px;
+}
+
+#register-form
+{
+	width: 270px;
+	margin: auto;
+}
+#register-form ul
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#register-form ul li
+{
+	display: block;
+}
+#register-form input
+{
+	width: 100%;
+}
+#register-form #submit-container
+{
+	margin-top: 15px;
+}

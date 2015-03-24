@@ -7,7 +7,7 @@ function loadModel(modelName)
 		{
 			if(data.result == true)
 			{
-				window.history.pushState({page: modelName}, modelName);
+				window.history.pushState({page: modelName}, modelName, modelName);
 
 				$("#ajax-container").html(data.reply).fadeIn(200).queue(function(){
 					$.ajax({

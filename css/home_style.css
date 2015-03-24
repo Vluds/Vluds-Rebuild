@@ -8,18 +8,6 @@
 	display: none;
 }
 
-#accounts-container
-{
-	width: 100%;
-}
-
-.account
-{
-	height: 136px;
-	margin-bottom: -136px;
-	position: relative;
-}
-
 #egg_jump
 {
 	position: absolute;
@@ -41,21 +29,4 @@
 {
 	color: rgba(37, 199, 125, 1);
 	font-size: 0.8em;
-}
-
-#text-container
-{
-	text-align: center;
-	margin-bottom: 30px;
-	background-color: rgba(245, 245, 245, 1);
-}
-
-#options-container
-{
-	text-align: center;
-}
-
-#options-container #link-container
-{
-	margin-top: 10px;
 }
