@@ -21,14 +21,15 @@
 	<form id="register-form">
 		<ul>
 			<li><input id="email-input" name="email" type="email" placeholder="Email"></li>
-			<span class="info-form-input"><span class="left-arrow"></span><p>L'e-mail que vous indiquez doit être correcte</span>
+			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
 		<ul>
 			<li><input id="username-input" name="username" type="text" placeholder="Nom d'utilisateur"></li>
-			<span class="info-form-input"><span class="left-arrow"></span><p>Le nom d'utilisateur ne doit comporter que des caractères alphanumériques</span>
+			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
 		<ul>
 			<li><input id="password-input" name="password" type="password" placeholder="Mot de passe"></li>
+			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
 		<ul id="submit-container">
 			<div onClick="regUser()" class="button">

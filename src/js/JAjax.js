@@ -35,3 +35,62 @@ function loadModel(modelName)
 		$(this).dequeue();
 	});
 }
+
+function regUser()
+{
+	var emailInput = $('#register-form #email-input').val();
+	var usernameInput = $('#register-form #username-input').val();
+	var passwordInput = $('#register-form #password-input').val();
+
+
+	if(emailInput.length > 0)
+	{
+		$('#register-form #email-input').parent().parent().find('.info-form-input').fadeOut(200);
+
+		var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+ 
+	    if(reg.test(emailInput))
+	    {
+	    	if(usernameInput.length > 3)
+			{
+				$('#register-form #username-input').parent().parent().find('.info-form-input').fadeOut(200);
+
+				if(passwordInput.length > 0)
+				{
+					$('#register-form #password-input').parent().parent().find('.info-form-input').fadeOut(200);
+
+					$.post("src/php/executor.php", { action: "regUser", emailInput: emailInput, usernameInput: usernameInput, passwordInput: passwordInput}, function(data)
+					{
+						if(data.result == true)
+						{
+
+						}
+						else
+						{
+							alert(data.error);
+							$("#ajax-container").fadeIn(200);
+						}
+
+					}, "json");
+				}
+				else
+				{
+					$('#register-form #password-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
+				}
+			}
+			else
+			{
+				$('#register-form #username-input').parent().parent().find('.info-form-input p').html("<p>Le nom d'utilisateur doit comporter au moins 4 caractères !</p>").parent().fadeIn(400);
+			}
+	    }
+	    else
+	    {
+	    	$('#register-form #email-input').parent().parent().find('.info-form-input p').html("<p>L'adresse e-mail n'est pas valide !</p>").parent().fadeIn(400);
+	    }
+
+	}
+	else
+	{
+		$('#register-form #email-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
+	}
+}

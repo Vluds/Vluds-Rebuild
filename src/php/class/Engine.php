@@ -51,6 +51,10 @@ class Engine
 		$headers .= 'From: Vluds <no-reply@vluds.eu>' . "\r\n";
 
 		mail($to, $subject, $message, $headers);
+		
+		$dataArray['result'] = true;
+
+		return $dataArray;
 	}
 }
 

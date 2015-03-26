@@ -37,6 +37,33 @@
 				$dataArray['result'] = false;
 			}
 		}
+
+		if($action == "sendConfirmationMail")
+		{
+			if(isset($_POST['username']) AND isset($_POST['email']))
+			{
+				$username = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['username']));
+				$email = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['email']));
+
+				$returnModel = array();
+				$returnModel = Engine::sendConfirmationMail($username, $email);
+				$dataArray['error'] = $returnModel['error'];
+
+				if($returnModel['result'] == true)	
+				{
+					$dataArray['reply'] = $returnModel['reply'];
+					$dataArray['result'] = $returnModel['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
 	}
 	else
 	{
