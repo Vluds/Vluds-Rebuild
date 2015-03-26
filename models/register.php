@@ -20,16 +20,18 @@
 
 	<form id="register-form">
 		<ul>
-			<li><input type="email" placeholder="Email"></li>
+			<li><input id="email-input" name="email" type="email" placeholder="Email"></li>
+			<span class="info-form-input"><span class="left-arrow"></span><p>L'e-mail que vous indiquez doit être correcte</span>
 		</ul>
 		<ul>
-			<li><input type="text" placeholder="Nom d'utilisateur"></li>
+			<li><input id="username-input" name="username" type="text" placeholder="Nom d'utilisateur"></li>
+			<span class="info-form-input"><span class="left-arrow"></span><p>Le nom d'utilisateur ne doit comporter que des caractères alphanumériques</span>
 		</ul>
 		<ul>
-			<li><input type="password" placeholder="Mot de passe"></li>
+			<li><input id="password-input" name="password" type="password" placeholder="Mot de passe"></li>
 		</ul>
 		<ul id="submit-container">
-			<div onClick="loadModel('register')" class="button">
+			<div onClick="regUser()" class="button">
 				<p>Créer mon compte</p>
 			</div>
 		</ul>

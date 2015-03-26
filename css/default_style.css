@@ -199,6 +199,41 @@ footer
 	padding-bottom: 15px;
 }
 
+.info-form-input
+{
+	position: absolute;
+	top: 0;
+	right: -325px;
+	height: 40px;
+	width: 320px;
+	max-width: 400px;
+	background-color: rgba(211, 69, 54, 0.8);
+	border-radius: 15px;
+	z-index: 2;
+	padding-left: 5px;
+	padding-right: 5px;
+	box-sizing: border-box;
+	line-height: 40px;
+
+	display: none;
+}
+.info-form-input p
+{
+	font-size: 0.9em;
+}
+
+.left-arrow 
+{
+	width: 0px;
+	height: 0px;
+	border-style: inset;
+	border-width: 10px 10px 10px 0px;
+	border-color: transparent rgba(176, 17, 0, 1) transparent transparent;
+	position: absolute;
+	left: -9px;
+	top: 10px;
+}
+
 .align-middle
 {
 	width: 0;
@@ -246,11 +281,11 @@ footer
 .button
 {
 	min-width: 160px;
-	height: 40px;
-	border-radius: 7px;
+	height: 45px;
+	border-radius: 15px;
 	background-color: transparent;
 	border: 1px solid rgba(37, 199, 125, 1);
-	line-height: 40px;
+	line-height: 44px;
 	box-sizing: border-box;
 	margin: auto;
 	cursor: pointer;
@@ -264,11 +299,11 @@ footer
 input
 {
 	border: 1px solid rgba(37, 199, 125, 1);
-	border-radius: 7px;
+	border-radius: 15px;
 	background-color: transparent;
-	padding-left: 10px;
-	padding-right: 10px;
-	height: 40px;
+	padding-left: 13px;
+	padding-right: 13px;
+	height: 45px;
 	box-sizing: border-box;
 	font-family: 'OpenSans-Light';
 	font-size: 18px;

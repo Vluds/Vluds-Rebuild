@@ -16,8 +16,9 @@
 }
 #register-form ul
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	position: relative;
 }
 #register-form ul li
 {

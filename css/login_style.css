@@ -16,8 +16,8 @@
 }
 #login-form ul
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 #login-form ul li
 {

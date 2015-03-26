@@ -34,6 +34,24 @@ class Engine
 
 		return $dataArray; 
 	}
+
+	public static function sendConfirmationMail($username, $email)
+	{
+
+		$to = $email;
+
+		$subject = 'Hey, Bienvenue sur Vluds '.$username.' !';
+
+		$message = include('includes/confirmation_mail.php');
+
+		$headers = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+		$headers .= 'To: '.$username.' <'.$email.'>' . "\r\n";
+		$headers .= 'From: Vluds <no-reply@vluds.eu>' . "\r\n";
+
+		mail($to, $subject, $message, $headers);
+	}
 }
 
 ?>

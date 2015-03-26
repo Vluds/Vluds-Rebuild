@@ -40,12 +40,10 @@ function checkAcceptationCookies()
 
 	if(cookieValue != 1)
 	{
-		console.log("ShowCookies");
 		showPopUp('cookiesPrivacy');
 	}
 	else
 	{
-		console.log("CloseCookies");
 		closePopUp();
 	}
 }
@@ -72,3 +70,30 @@ function getCookie(cookieName)
 		return null;
 	}
 }
+
+/*$(document).on('keyup', '#register-form input', function()
+{
+	var inputAttr = $(this).attr("id");
+
+	if(inputAttr == "email-input")
+	{
+		var inputValue = $(this).val();
+
+		if(inputValue.lenght != 0)
+		{
+			$(this).parent().parent().find('.info-form-input').fadeIn(400);
+		}
+		else
+		{
+			$(this).parent().parent().find('.info-form-input').fadeOut(200);
+		}
+	}
+	else if(inputAttr == "username-input")
+	{
+		$(this).parent().parent().find('.info-form-input').fadeIn(400);
+	}
+	else if(inputAttr == "password-input")
+	{
+		$(this).parent().parent().find('.info-form-input').fadeIn(400);
+	}
+});*/

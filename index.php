@@ -58,6 +58,12 @@
 						loadModel('login');
 		<?php
 					}
+					else if ($_GET['page'] == 'validation') 
+					{
+		?>
+						loadModel('validation');
+		<?php
+					}
 		?>
 				</script>
 		<?php
