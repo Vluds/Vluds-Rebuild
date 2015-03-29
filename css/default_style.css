@@ -176,6 +176,24 @@ section
 	margin-top: -100px;
 }
 
+#error-container
+{
+	background-color: rgb(221, 121, 111);
+	border-radius: 15px 15px 15px 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+
+	display: none;
+}
+#error-container p
+{
+	font-size: 0.9em;
+}
+
 #options-container
 {
 	text-align: center;
@@ -249,8 +267,25 @@ footer
 	height: 100%;
 	width: 100%;
 	background-color: rgba(30, 30, 30, 0.6);
+	z-index: 5;
 
 	display: none;
+}
+#background-container #close-background
+{
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	background-image: url('../img/cross.png');
+	background-size: 50%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 40px;
+	border: 1px solid rgba(37, 199, 125, 1);
+	border-radius: 100px;
+	box-sizing: border-box;
+	cursor: pointer;
 }
 
 .popup-box

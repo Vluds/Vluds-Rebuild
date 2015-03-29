@@ -42,7 +42,6 @@ function regUser()
 	var usernameInput = $('#register-form #username-input').val();
 	var passwordInput = $('#register-form #password-input').val();
 
-
 	if(emailInput.length > 0)
 	{
 		$('#register-form #email-input').parent().parent().find('.info-form-input').fadeOut(200);
@@ -63,7 +62,7 @@ function regUser()
 					{
 						if(data.result == true)
 						{
-
+							alert("yeah");
 						}
 						else
 						{
@@ -92,5 +91,43 @@ function regUser()
 	else
 	{
 		$('#register-form #email-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
+	}
+}
+
+function logUser()
+{
+	var usernameInput = $('#login-form #username-input').val();
+	var passwordInput = $('#login-form #password-input').val();
+
+	if(usernameInput.length > 0)
+	{
+		$('#login-form #username-input').parent().parent().find('.info-form-input').fadeOut(200);
+
+		if(passwordInput.length > 0)
+		{
+			$('#login-form #password-input').parent().parent().find('.info-form-input').fadeOut(200);
+
+			$.post("src/php/executor.php", { action: "logUser", usernameInput: usernameInput, passwordInput: passwordInput}, function(data)
+			{
+				if(data.result == true)
+				{
+					alert("yeah");
+				}
+				else
+				{
+					$('#login-form #error-container p').html(data.error).parent().fadeIn(400);
+					$("#ajax-container").fadeIn(200);
+				}
+
+			}, "json");
+		}
+		else
+		{
+			$('#login-form #password-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
+		}
+	}
+	else
+	{
+		$('#login-form #username-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
 	}
 }

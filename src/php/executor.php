@@ -3,6 +3,7 @@
 
 	require("class/bdd.php");
 	require("class/Engine.php");
+	require("class/User.php");
 
 	$dataArray = array();
 
@@ -38,21 +39,48 @@
 			}
 		}
 
-		if($action == "sendConfirmationMail")
+		if($action == "regUser")
 		{
-			if(isset($_POST['username']) AND isset($_POST['email']))
+			if(isset($_POST['emailInput']) AND isset($_POST['usernameInput']) AND isset($_POST['passwordInput']))
 			{
-				$username = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['username']));
-				$email = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['email']));
+				$email = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['emailInput']));
+				$username = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['usernameInput']));
+				$password = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['passwordInput']));
 
-				$returnModel = array();
-				$returnModel = Engine::sendConfirmationMail($username, $email);
-				$dataArray['error'] = $returnModel['error'];
+				$returnFunction = array();
+				$returnFunction = User::regUser($username, $password, $email);
+				$dataArray['error'] = $returnFunction['error'];
 
-				if($returnModel['result'] == true)	
+				if($returnFunction['result'] == true)	
 				{
-					$dataArray['reply'] = $returnModel['reply'];
-					$dataArray['result'] = $returnModel['result'];
+					$dataArray['reply'] = $returnFunction['reply'];
+					$dataArray['result'] = $returnFunction['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
+
+		if($action == "logUser")
+		{
+			if(isset($_POST['usernameInput']) AND isset($_POST['passwordInput']))
+			{
+				$username = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['usernameInput']));
+				$password = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['passwordInput']));
+
+				$returnFunction = array();
+				$returnFunction = User::logUser($username, $password);
+				$dataArray['error'] = $returnFunction['error'];
+
+				if($returnFunction['result'] == true)
+				{
+					$dataArray['result'] = $returnFunction['result'];
 				}
 				else
 				{

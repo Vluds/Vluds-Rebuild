@@ -34,41 +34,47 @@
 		</header>
 
 		<section id="ajax-container">
+			<script type="text/javascript">
 		<?php
 			if(isset($_GET['page']) AND !empty($_GET['page']))
 			{
 		?>
-				<script type="text/javascript">
+			<?php
+				if($_GET['page'] == 'home')
+				{
+			?>
+					loadModel('home');
+			<?php
+				}
+				else if ($_GET['page'] == 'register') 
+				{
+			?>
+					loadModel('register');
+			<?php
+				}
+				else if ($_GET['page'] == 'login') 
+				{
+			?>
+					loadModel('login');
+			<?php
+				}
+				else if ($_GET['page'] == 'validation') 
+				{
+			?>
+					loadModel('validation');
+			<?php
+				}
+			?>
 		<?php
-					if($_GET['page'] == 'home')
-					{
+			}
+			else
+			{
 		?>
-						loadModel('home');
-		<?php
-					}
-					else if ($_GET['page'] == 'register') 
-					{
-		?>
-						loadModel('register');
-		<?php
-					}
-					else if ($_GET['page'] == 'login') 
-					{
-		?>
-						loadModel('login');
-		<?php
-					}
-					else if ($_GET['page'] == 'validation') 
-					{
-		?>
-						loadModel('validation');
-		<?php
-					}
-		?>
-				</script>
+				loadModel('home');
 		<?php
 			}
 		?>
+				</script>
 		</section>
 
 		<footer>
@@ -76,6 +82,7 @@
 		</footer>
 
 		<div id="background-container">
+			<div id="close-background"></div>
 			<?php include('includes/cookiesPrivacy-box.php');?>
 		</div>
 

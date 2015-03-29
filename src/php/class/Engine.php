@@ -2,6 +2,7 @@
 
 class Engine
 {
+
 	public $newbdd;
 
 	public function __construct()
@@ -42,7 +43,10 @@ class Engine
 
 		$subject = 'Hey, Bienvenue sur Vluds '.$username.' !';
 
-		$message = include('includes/confirmation_mail.php');
+		ob_start();
+		include('../../includes/confirmation_mail.php');
+		$message .= ob_get_contents();
+		ob_end_clean();
 
 		$headers = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -54,7 +58,7 @@ class Engine
 		
 		$dataArray['result'] = true;
 
-		return $dataArray;
+		return true;
 	}
 }
 

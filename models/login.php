@@ -19,14 +19,19 @@
 	</div>
 
 	<form id="login-form">
+		<div id="error-container">
+			<p>Erreur ...</p>
+		</div>
 		<ul>
-			<li><input type="text" placeholder="Nom d'utilisateur ou Email"></li>
+			<li><input id="username-input" name="username" type="text" placeholder="Nom d'utilisateur ou Email"></li>
+			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
 		<ul>
-			<li><input type="password" placeholder="Mot de passe"></li>
+			<li><input id="password-input" name="password" type="password" placeholder="Mot de passe"></li>
+			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
 		<ul id="submit-container">
-			<div onClick="loadModel('login')" class="button">
+			<div onClick="logUser()" class="button">
 				<p>Connexion</p>
 			</div>
 		</ul>

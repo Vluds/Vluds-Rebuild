@@ -27,10 +27,19 @@ function showPopUp(name)
 function closePopUp()
 {
 	$('.popup-box').stop().fadeOut(400);
+	closeBackground();
 }
 
-$(document).on('click', '#background-container', function() 
+$(document).on('mouseenter', '#background-container #close-background', function()
 {
+	$(this).stop().animate({backgroundColor: "rgba(37, 199, 125, 1)"}, 400).css({backgroundImage: "url('img/cross_hover.png')"}, 200);
+
+}).on('mouseleave', '#background-container #close-background', function() 
+{
+	$(this).stop().animate({backgroundColor: "transparent"}, 400).css({backgroundImage: "url('img/cross.png')"}, 200);
+}).on('click', '#background-container #close-background', function() 
+{
+	$(this).stop().animate({backgroundColor: "transparent"}, 100).css({backgroundImage: "url('img/cross.png')"}, 200);;
 	closeBackground();
 });
 
