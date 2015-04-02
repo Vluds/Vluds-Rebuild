@@ -35,5 +35,8 @@
 				<p>Connexion</p>
 			</div>
 		</ul>
+		<div id="link-container">
+			<span class="a" onClick="loadModel('home')"><p>Retour</p></span>
+		</div>
 	</form>
 </div>
