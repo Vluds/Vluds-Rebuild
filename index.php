@@ -13,8 +13,11 @@
 		<link rel="stylesheet" type="text/css" href="css/home_style.css">
 		<link rel="stylesheet" type="text/css" href="css/register_style.css">
 		<link rel="stylesheet" type="text/css" href="css/login_style.css">
+		<link rel="stylesheet" type="text/css" href="css/validation_style.css">
 
 		<link rel="icon" href="img/favicon.ico" />
+
+		<base href="" >
 
 		<!-- Script -->
 		<script src="src/js/lib/jquery.min-1.11.1.js"></script>
@@ -58,7 +61,7 @@
 					loadModel('login');
 			<?php
 				}
-				else if ($_GET['page'] == 'validation') 
+				else if ($_GET['page'] == 'validation')
 				{
 			?>
 					loadModel('validation');

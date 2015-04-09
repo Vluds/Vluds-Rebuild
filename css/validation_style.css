@@ -1,0 +1,9 @@
+#validation-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 600px;
+
+	display: none;
+}

@@ -24,6 +24,10 @@ window.onpopstate = function(event)
 	{
 		loadModel('login');
 	}
+	else if(event.state.page == "validation")
+	{
+		loadModel('validation');
+	}
 	else if(event.state.page == "tagsfinder")
 	{
 		loadTagsFinder(event.state.tag);
