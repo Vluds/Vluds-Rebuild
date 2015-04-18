@@ -1,6 +1,9 @@
 # Vluds Rebuild
-Social Network
---------------
-Be more social.
+A better definition of **social** network
 
-Made with <3 for you
+##Database
+Use vluds_rebuild_bdd.sql for set the database
+
+-- Be more social --
+
+Made with our little hands for you :heart:
