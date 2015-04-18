@@ -2,6 +2,9 @@
 	session_start();
 
 	require("src/php/class/bdd.php");
+	$newStaticBdd = new BDD();
+
+	require("src/php/class/Engine.php");
 ?>
 
 <!DOCTYPE html>
@@ -63,12 +66,20 @@
 				}
 				else if ($_GET['page'] == 'validation')
 				{
+					if(isset($_GET['username']) AND isset($_GET['activationKey']))
+					{
 			?>
-					loadModel('validation');
+						var username = "<?php echo $_GET['username'];?>";
+						var activationKey = "<?php echo $_GET['activationKey'];?>";
+
+						accountActivation(username, activationKey);
 			<?php
+					}
+					else
+					{
+						echo "Lien éronné ...";
+					}
 				}
-			?>
-		<?php
 			}
 			else
 			{

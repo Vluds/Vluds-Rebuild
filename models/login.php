@@ -18,13 +18,16 @@
 		<h3>Connecte-toi ...</h3>
 	</div>
 
-	<form id="login-form">
+	<div id="info-container">
 		<div id="error-container">
 			<p>Erreur ...</p>
 		</div>
 		<div id="message-container">
 			<p>Info ...</p>
 		</div>
+	</div>
+
+	<form id="login-form">
 		<ul>
 			<li><input id="username-input" name="username" type="text" placeholder="Nom d'utilisateur ou Email"></li>
 			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>

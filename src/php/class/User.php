@@ -105,7 +105,9 @@ class User
 
 				$passwordHash = hash('sha256', $password).$salt;
 
-				$regUser = $newStaticBdd->insert("users", "username, password, salt, email, ip", "'".$username."', '".$passwordHash."', '".$salt."', '".$email."', '".$ip."'");
+				$activationKey = self::randomSalt(25);
+
+				$regUser = $newStaticBdd->insert("users", "username, password, salt, email, ip, activationKey", "'".$username."', '".$passwordHash."', '".$salt."', '".$email."', '".$ip."', '".$activationKey."'");
 
 				$UserId = $newStaticBdd->select("id", "users", "WHERE password LIKE '".$passwordHash."'");
 				$getUserId = $newStaticBdd->fetch_array($UserId);
@@ -114,7 +116,7 @@ class User
 				mkdir("users/".$getUserId['id']."/banner", 0700, true);
 
 				self::logUser($username, $password);
-				Engine::sendConfirmationMail($username, $email);
+				Engine::sendConfirmationMail($username, $email, $activationKey);
 
 				$dataArray['result'] = true;
 				$dataArray['error'] = null;
@@ -204,6 +206,51 @@ class User
 		$newStaticBdd->update("users", "token = '".$token."', time = '".time()."'", "WHERE id = '".$userId."'");
 
 		return true;
+	}
+
+	public static function checkActivationKey($username, $activationKey)
+	{
+		$newStaticBdd = new BDD();
+
+		$UserInfo = $newStaticBdd->select("id, username, activated, activationKey", "users", "WHERE username LIKE '".$username."'");
+		$isReg = $newStaticBdd->num_rows($UserInfo);
+
+		if($isReg == 1)
+		{
+			$getUserInfo = $newStaticBdd->fetch_array($UserInfo);
+
+			if($activationKey == $getUserInfo["activationKey"])
+			{
+				if($getUserInfo['activated'] == 0)
+				{
+					$newStaticBdd->update("users", "activated = '1'", "WHERE username = '".$username."' AND activationKey = '".$activationKey."'");
+
+					$dataArray["result"] = true;
+					$dataArray['error'] = null;
+					$dataArray['reply'] = "Super, ton compte à été validé !<br/>Connecte-toi vite !";
+				}
+				else
+				{
+					$dataArray['result'] = false;
+					$dataArray['error'] = "Hum, le compte semble déjà être validé ...<br/>Plus besoin de cliquer sur ce lien !";
+					$dataArray['reply'] = null;
+				}
+			}
+			else
+			{
+				$dataArray['result'] = false;
+				$dataArray['error'] = "Ah ... désolé mais la clée d'activation est éronnée !";
+				$dataArray['reply'] = null;
+			}
+		}
+		else
+		{
+			$dataArray['result'] = false;
+			$dataArray['error'] = "Le nom d'utilisateur utilisé pour la vérification du compte n'existe pas ...";
+			$dataArray['reply'] = null;
+		}
+
+		return $dataArray;
 	}
 }
 

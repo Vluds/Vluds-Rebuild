@@ -16,9 +16,11 @@ function loadModel(modelName)
 						dataType: "script",
 						error : function(){
 					    	console.log("error");
+					    	return false;
 					   	},
 					   	complete: function(){
 					    	console.log("complete");
+					    	return true;
 					   	}
 					});
 				});
@@ -62,13 +64,16 @@ function regUser()
 					{
 						if(data.result == true)
 						{
-							$('#register-form #error-container').fadeOut();
-							$('#register-form #message-container p').html(data.reply).parent().fadeIn(400);
+							$('#register-container #text-container').slideUp(200);
+							$('#register-container #register-form').slideUp(200);
+							$('#register-container #accounts-container').animate({marginBottom: "20px"}, 200);
+
+							$('#register-container #info-container #error-container').slideUp(200);
+							$('#register-container #info-container #message-container p').html(data.reply).parent().slideDown(400);
 						}
 						else
 						{
-							$('#register-form #error-container p').html(data.error).parent().fadeIn(400);
-							$("#ajax-container").fadeIn(200);
+							$('#register-container #info-container #error-container p').html(data.error).parent().slideDown(400);
 						}
 
 					}, "json");
@@ -112,14 +117,13 @@ function logUser()
 			{
 				if(data.result == true)
 				{
-					$('#login-form #error-container').fadeOut();
-					$('#login-form #message-container p').html(data.reply).parent().fadeIn(400);
+					$('#login-container #info-container #error-container').slideUp(200);
+					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400);
 					loadModel('profil');
 				}
 				else
 				{
-					$('#login-form #error-container p').html(data.error).parent().fadeIn(400);
-					$("#ajax-container").fadeIn(200);
+					$('#login-container #info-container #error-container p').html(data.error).parent().slideDown(400);
 				}
 
 			}, "json");
@@ -133,4 +137,24 @@ function logUser()
 	{
 		$('#login-form #username-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
 	}
+}
+
+function accountActivation(username, activationKey)
+{
+	$.when(loadModel('validation')).done(function()
+	{
+		$.post("src/php/executor.php", { action: "checkActivationKey", username: username, activationKey: activationKey}, function(data)
+		{
+			if(data.result == true)
+			{
+				$('#validation-container #info-container #error-container').fadeOut();
+				$('#validation-container #info-container #message-container p').html(data.reply).parent().fadeIn(400);
+			}
+			else
+			{
+				$('#validation-container #info-container #error-container p').html(data.error).parent().fadeIn(400);
+			}
+		}, "json");
+	});
+	
 }

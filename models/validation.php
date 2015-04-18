@@ -1,9 +1,6 @@
-<?php
-	echo $_GET['activationKey'];
-?>
-
 <script type="text/javascript">
 	document.title = "Vluds - Validation du compte";
+	
 </script>
 
 <div class="align-middle"></div>
@@ -22,9 +19,12 @@
 		<h3>Validation de votre email</h3>
 	</div>
 
-	<div id="options-container">
+	<div id="info-container">
 		<div id="error-container">
 			<p>Erreur ...</p>
+		</div>
+		<div id="message-container">
+			<p>Info ...</p>
 		</div>
 	</div>
 </div>

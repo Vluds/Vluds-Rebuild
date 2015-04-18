@@ -177,6 +177,12 @@ section
 	margin-top: -100px;
 }
 
+#info-container
+{
+	width: 270px;
+	margin: auto;
+}
+
 #error-container
 {
 	background-color: rgb(221, 121, 111);
@@ -234,7 +240,9 @@ footer
 	text-align: center;
 	bottom: 0;
 	left: 0;
+	padding-top: 15px;
 	padding-bottom: 15px;
+	background: rgba(245, 245, 245, 0.7);
 }
 
 .info-form-input

@@ -93,6 +93,33 @@
 				$dataArray['result'] = false;
 			}
 		}
+
+		if($action == "checkActivationKey")
+		{
+			if(isset($_POST['username']) AND isset($_POST['activationKey']))
+			{
+				$username = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['username']));
+				$activationKey = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['activationKey']));
+
+				$returnCheck = array();
+				$returnCheck = User::checkActivationKey($username, $activationKey);
+				$dataArray['error'] = $returnCheck['error'];
+
+				if($returnCheck['result'] == true)
+				{
+					$dataArray['reply'] = $returnCheck['reply'];
+					$dataArray['result'] = $returnCheck['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
 	}
 	else
 	{

@@ -18,13 +18,16 @@
 		<h3>Complétez ce formulaire</h3>
 	</div>
 
-	<form id="register-form">
+	<div id="info-container">
 		<div id="error-container">
 			<p>Erreur ...</p>
 		</div>
 		<div id="message-container">
 			<p>Info ...</p>
 		</div>
+	</div>
+
+	<form id="register-form">
 		<ul>
 			<li><input id="email-input" name="email" type="email" placeholder="Email"></li>
 			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>

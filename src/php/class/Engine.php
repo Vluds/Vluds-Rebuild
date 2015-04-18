@@ -36,9 +36,8 @@ class Engine
 		return $dataArray; 
 	}
 
-	public static function sendConfirmationMail($username, $email)
+	public static function sendConfirmationMail($username, $email, $activationKey)
 	{
-
 		$to = $email;
 
 		$subject = 'Hey, Bienvenue sur Vluds '.$username.' !';
