@@ -118,17 +118,20 @@ class User
 
 				$dataArray['result'] = true;
 				$dataArray['error'] = null;
+				$dataArray['reply'] = "Bravo, vous êtes enfin inscrit !<br/>Courez vite vérifier vos mails afin de valider votre compte !";
 			}
 			else
 			{
 				$dataArray['result'] = false;
 				$dataArray['error'] = "Le nom d'utilisateur est déjà utilisé ...";
+				$dataArray['reply'] = null;
 			}
 		}
 		else
 		{
 			$dataArray['result'] = false;
 			$dataArray['error'] = "L'e-mail est déjà enregisté ...";
+			$dataArray['reply'] = null;
 		}
 
 		return $dataArray;
@@ -161,23 +164,27 @@ class User
 
 					$dataArray["result"] = true;
 					$dataArray['error'] = null;
+					$dataArray['reply'] = "Yeah, tu es connecté !";
 				}
 				else
 				{
 					$dataArray['result'] = false;
 					$dataArray['error'] = "Désolé mais vous devez d'abord valider votre compte, pour cela rendez-vous sur votre boîte mail.<br/>Dépechez-vous, on vous attend !";
+					$dataArray['reply'] = null;
 				}
 			}
 			else
 			{
 				$dataArray['result'] = false;
 				$dataArray['error'] = "Le mot de passe n'est pas correct ...";
+				$dataArray['reply'] = null;
 			}
 		}
 		else
 		{
 			$dataArray['result'] = false;
 			$dataArray['error'] = "Le nom d'utilisateur n'est pas enregistré ...";
+			$dataArray['reply'] = null;
 		}
 
 		return $dataArray;

@@ -80,6 +80,7 @@
 
 				if($returnFunction['result'] == true)
 				{
+					$dataArray['reply'] = $returnFunction['reply'];
 					$dataArray['result'] = $returnFunction['result'];
 				}
 				else

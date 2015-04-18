@@ -62,11 +62,12 @@ function regUser()
 					{
 						if(data.result == true)
 						{
-							alert("yeah");
+							$('#register-form #error-container').fadeOut();
+							$('#register-form #message-container p').html(data.reply).parent().fadeIn(400);
 						}
 						else
 						{
-							alert(data.error);
+							$('#register-form #error-container p').html(data.error).parent().fadeIn(400);
 							$("#ajax-container").fadeIn(200);
 						}
 
@@ -111,7 +112,9 @@ function logUser()
 			{
 				if(data.result == true)
 				{
-					alert("yeah");
+					$('#login-form #error-container').fadeOut();
+					$('#login-form #message-container p').html(data.reply).parent().fadeIn(400);
+					loadModel('profil');
 				}
 				else
 				{
