@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="css/register_style.css">
 		<link rel="stylesheet" type="text/css" href="css/login_style.css">
 		<link rel="stylesheet" type="text/css" href="css/validation_style.css">
+		<link rel="stylesheet" type="text/css" href="css/profil_style.css">
 
 		<link rel="icon" href="img/favicon.ico" />
 
@@ -62,6 +63,12 @@
 				{
 			?>
 					loadModel('login');
+			<?php
+				}
+				else if ($_GET['page'] == 'profil') 
+				{
+			?>
+					loadModel('profil');
 			<?php
 				}
 				else if ($_GET['page'] == 'validation')

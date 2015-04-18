@@ -4,4 +4,5 @@ RewriteEngine On
 RewriteRule ^home  index.php?page=home [NC,L]
 RewriteRule ^register  index.php?page=register [NC,L]
 RewriteRule ^login  index.php?page=login [NC,L]
+RewriteRule ^profil  index.php?page=profil [NC,L]
 RewriteRule ^validation  index.php?page=validation [NC,L]
