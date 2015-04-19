@@ -47,30 +47,54 @@
 			if(isset($_GET['page']) AND !empty($_GET['page']))
 			{
 				if($_GET['page'] == 'home')
-				{			
+				{		
+					if(User::isLogged())
+					{
 		?>
-					loadModel('home');
+						loadModel('profil');
 		<?php
+					}
+					else
+					{
+		?>	
+						loadModel('home');
+		<?php
+					}
 				}
-				else if ($_GET['page'] == 'register') 
+
+				if ($_GET['page'] == 'register') 
 				{
+					if(User::isLogged())
+					{
 		?>
-					loadModel('register');
+						loadModel('profil');
 		<?php
+					}
+					else
+					{
+		?>
+						loadModel('register');
+		<?php
+					}
 				}
-				else if ($_GET['page'] == 'login') 
+
+				if ($_GET['page'] == 'login') 
 				{
+					if(User::isLogged())
+					{
 		?>
-					loadModel('login');
+						loadModel('profil');
 		<?php
-				}
-				else if ($_GET['page'] == 'profil') 
-				{
+					}
+					else
+					{
 		?>
-					loadModel('profil');
+						loadModel('login');
 		<?php
+					}
 				}
-				else if ($_GET['page'] == 'validation')
+
+				if ($_GET['page'] == 'validation')
 				{
 					if(isset($_GET['username']) AND isset($_GET['activationKey']))
 					{

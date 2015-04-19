@@ -1,3 +1,7 @@
+<script type="text/javascript">
+	document.title = "Vluds - Be more social.";
+</script>
+
 <div class="align-middle"></div>
 
 <div id="home-container">
