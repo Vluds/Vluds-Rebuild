@@ -1,5 +1,30 @@
+function isUserLogged()
+{
+	$.post("src/php/executor.php", { action: "isUserLogged"}, function(data)
+	{
+		return data.result;
+
+	}, "json");
+}
+
 function loadModel(modelName)
 {
+	if(modelName == "home" || modelName == "register" || modelName == "login")
+	{
+		if(isUserLogged())
+		{
+			modelName == "profil";
+		}
+	}
+
+	if(modelName == "profil")
+	{
+		if(!isUserLogged())
+		{
+			modelName == "home";
+		}
+	}
+
 	$("#ajax-container").stop().fadeOut(200).queue(function() {
 		$(this).html("<p>Chargement ...</p>");
 
@@ -11,18 +36,29 @@ function loadModel(modelName)
 
 				$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
 				{
-					if(isFileExist("animations/" + modelName + "_animation.js"))
+					if(isFileExist("css/" + modelName + "_style.css"))
 					{
-						$.ajax({
-							type: "GET",
-							url: "animations/" + modelName + "_animation.js",
-							dataType: "script",
-							error : function(){
-						    	console.log("error");
-						   	},
-						   	complete: function(){
-						    	console.log("complete");
-						   	}
+						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + modelName + '_style.css">').queue(function(){
+							console.log("style loaded");
+
+							if(isFileExist("animations/" + modelName + "_animation.js"))
+							{
+								$.ajax({
+									type: "GET",
+									url: "animations/" + modelName + "_animation.js",
+									dataType: "script",
+									error : function()
+									{
+										   console.log("animation load: error");
+									},
+									complete: function()
+									{
+										console.log("animation loaded");
+									}
+								});
+							}
+
+							$(this).dequeue();
 						});
 					}
 

@@ -172,7 +172,7 @@ section
 #text-container
 {
 	text-align: center;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
 	background-color: rgba(245, 245, 245, 1);
 	margin-top: -100px;
 }
@@ -225,7 +225,7 @@ section
 }
 #options-container .button
 {
-	width: 200px;
+	
 }
 
 #link-container
@@ -342,7 +342,7 @@ footer
 
 .button
 {
-	min-width: 160px;
+	min-width: 150px;
 	height: 45px;
 	border-radius: 15px;
 	background-color: transparent;
@@ -352,10 +352,19 @@ footer
 	margin: auto;
 	cursor: pointer;
 	overflow: hidden;
+	display: inline-block;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .button p
 {
 	color: rgba(37, 199, 125, 1);
+}
+
+form .button
+{
+	display: block;
+	width: 100%;
 }
 
 input

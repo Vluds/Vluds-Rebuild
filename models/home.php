@@ -25,8 +25,8 @@
 			<p>Créer un compte</p>
 		</div>
 
-		<div id="link-container">
-			<span class="a" onClick="loadModel('login')"><p>Je possède déjà un compte</p></span>
+		<div onClick="loadModel('login')" class="button">
+			<p>Me connecter</p>
 		</div>
 	</div>
 </div>

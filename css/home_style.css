@@ -8,6 +8,13 @@
 	display: none;
 }
 
+#home-container .button
+{
+	width: 200px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
 #egg_jump
 {
 	position: absolute;

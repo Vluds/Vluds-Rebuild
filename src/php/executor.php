@@ -13,6 +13,11 @@
 
 		$action = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['action']));
 
+		if($action == "isUserLogged")
+		{
+			$dataArray['result'] = User::isLogged();
+		}
+
 		if($action == "loadModel")
 		{
 			if(isset($_POST['modelName']))

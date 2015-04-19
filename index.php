@@ -14,11 +14,6 @@
 		<meta charset="utf-8"/>
 		<title>Vluds - Be more social.</title>
 		<link rel="stylesheet" type="text/css" href="css/default_style.css">
-		<link rel="stylesheet" type="text/css" href="css/home_style.css">
-		<link rel="stylesheet" type="text/css" href="css/register_style.css">
-		<link rel="stylesheet" type="text/css" href="css/login_style.css">
-		<link rel="stylesheet" type="text/css" href="css/validation_style.css">
-		<link rel="stylesheet" type="text/css" href="css/profil_style.css">
 
 		<link rel="icon" href="img/favicon.ico" />
 
@@ -38,6 +33,18 @@
 				<ul>
 					<li id="logo" onClick="loadModel('home')"><h1>Vluds</h1></li>
 				</ul>
+
+				<ul>
+		<?php
+					if(User::isLogged())
+					{
+
+		?>
+						<li><?php echo User::getUsername();?></li>
+		<?php
+					}
+		?>
+				</ul>
 			</nav>
 		</header>
 
@@ -46,54 +53,6 @@
 		<?php
 			if(isset($_GET['page']) AND !empty($_GET['page']))
 			{
-				if($_GET['page'] == 'home')
-				{		
-					if(User::isLogged())
-					{
-		?>
-						loadModel('profil');
-		<?php
-					}
-					else
-					{
-		?>	
-						loadModel('home');
-		<?php
-					}
-				}
-
-				if ($_GET['page'] == 'register') 
-				{
-					if(User::isLogged())
-					{
-		?>
-						loadModel('profil');
-		<?php
-					}
-					else
-					{
-		?>
-						loadModel('register');
-		<?php
-					}
-				}
-
-				if ($_GET['page'] == 'login') 
-				{
-					if(User::isLogged())
-					{
-		?>
-						loadModel('profil');
-		<?php
-					}
-					else
-					{
-		?>
-						loadModel('login');
-		<?php
-					}
-				}
-
 				if ($_GET['page'] == 'validation')
 				{
 					if(isset($_GET['username']) AND isset($_GET['activationKey']))
@@ -109,6 +68,13 @@
 					{
 						echo "Lien éronné ...";
 					}
+				}
+				else
+				{
+		?>
+					var modelName = "<?php echo $_GET['page'];?>";
+					loadModel(modelName);
+		<?php
 				}
 			}
 			else

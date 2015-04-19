@@ -61,13 +61,52 @@ class User
 
 	public static function getId()
 	{
-		$newStaticBdd = new BDD();
-		$IdToken = $newStaticBdd->select("id", "users", "WHERE token LIKE '".self::getToken()."'");
-		$getIdToken = $newStaticBdd->fetch_array($IdToken);
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$IdToken = $newStaticBdd->select("id", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getIdToken = $newStaticBdd->fetch_array($IdToken);
 
-		return $getIdToken['id'];
+			return $getIdToken['id'];
+		}
 	}
 
+	public static function getAvatar()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$IdToken = $newStaticBdd->select("avatar", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getIdToken = $newStaticBdd->fetch_array($IdToken);
+
+			return $getIdToken['avatar'];
+		}
+	}
+
+	public static function getUsername()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$UsernameToken = $newStaticBdd->select("username", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getUsernameToken = $newStaticBdd->fetch_array($UsernameToken);
+
+			return $getUsernameToken['username'];
+		}
+	}
+
+	public static function getFullName()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$FullName = $newStaticBdd->select("fullname", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getFullName = $newStaticBdd->fetch_array($FullName);
+
+			return $getFullName['fullname'];
+		}
+	}
+	
 	public static function regUser($username, $password, $email)
 	{	
 		$newStaticBdd = new BDD();
