@@ -9,20 +9,26 @@ function loadModel(modelName)
 			{
 				window.history.pushState({page: modelName}, modelName, modelName);
 
-				$("#ajax-container").html(data.reply).fadeIn(200).queue(function(){
-					$.ajax({
-						type: "GET",
-						url: "animations/" + modelName + "_animation.js",
-						dataType: "script",
-						error : function(){
-					    	console.log("error");
-					    	return false;
-					   	},
-					   	complete: function(){
-					    	console.log("complete");
-					    	return true;
-					   	}
-					});
+				$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
+				{
+					if(isFileExist("animations/" + modelName + "_animation.js"))
+					{
+						$.ajax({
+							type: "GET",
+							url: "animations/" + modelName + "_animation.js",
+							dataType: "script",
+							error : function(){
+						    	console.log("error");
+						   	},
+						   	complete: function(){
+						    	console.log("complete");
+						   	}
+						});
+					}
+
+					return true;
+					
+					$(this).dequeue();
 				});
 
 			}

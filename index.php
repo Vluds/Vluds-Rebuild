@@ -5,13 +5,14 @@
 	$newStaticBdd = new BDD();
 
 	require("src/php/class/Engine.php");
+	require("src/php/class/User.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Vluds - More Social</title>
+		<title>Vluds - Be more social.</title>
 		<link rel="stylesheet" type="text/css" href="css/default_style.css">
 		<link rel="stylesheet" type="text/css" href="css/home_style.css">
 		<link rel="stylesheet" type="text/css" href="css/register_style.css">
@@ -45,42 +46,40 @@
 		<?php
 			if(isset($_GET['page']) AND !empty($_GET['page']))
 			{
-		?>
-			<?php
 				if($_GET['page'] == 'home')
-				{
-			?>
+				{			
+		?>
 					loadModel('home');
-			<?php
+		<?php
 				}
 				else if ($_GET['page'] == 'register') 
 				{
-			?>
+		?>
 					loadModel('register');
-			<?php
+		<?php
 				}
 				else if ($_GET['page'] == 'login') 
 				{
-			?>
+		?>
 					loadModel('login');
-			<?php
+		<?php
 				}
 				else if ($_GET['page'] == 'profil') 
 				{
-			?>
+		?>
 					loadModel('profil');
-			<?php
+		<?php
 				}
 				else if ($_GET['page'] == 'validation')
 				{
 					if(isset($_GET['username']) AND isset($_GET['activationKey']))
 					{
-			?>
+		?>
 						var username = "<?php echo $_GET['username'];?>";
 						var activationKey = "<?php echo $_GET['activationKey'];?>";
 
 						accountActivation(username, activationKey);
-			<?php
+		<?php
 					}
 					else
 					{

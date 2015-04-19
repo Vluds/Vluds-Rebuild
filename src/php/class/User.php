@@ -33,19 +33,7 @@ class User
 	{
 		if(isset($_SESSION["SID_ID"]) AND !empty($_SESSION["SID_ID"]))
 		{		
-			$newStaticBdd = new BDD();
-			$UserInfo = $newStaticBdd->select("token", "users", "WHERE id LIKE '".self::getId()."'");
-			$getUserInfo = $newStaticBdd->fetch_array($UserInfo);
-
-			if(self::getToken() == $getUserInfo['token'])
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-				self::logOut();
-			}
+			return true;
 		}
 		else
 		{
@@ -69,6 +57,15 @@ class User
 		{
 			return "null";
 		}
+	}
+
+	public static function getId()
+	{
+		$newStaticBdd = new BDD();
+		$IdToken = $newStaticBdd->select("id", "users", "WHERE token LIKE '".self::getToken()."'");
+		$getIdToken = $newStaticBdd->fetch_array($IdToken);
+
+		return $getIdToken['id'];
 	}
 
 	public static function regUser($username, $password, $email)

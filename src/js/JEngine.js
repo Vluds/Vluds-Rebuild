@@ -75,6 +75,14 @@ function getCookie(cookieName)
 	}
 }
 
+function isFileExist(src)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', src, false);
+    http.send();
+    return http.status!=404;
+}
+
 /*$(document).on('keyup', '#register-form input', function()
 {
 	var inputAttr = $(this).attr("id");
