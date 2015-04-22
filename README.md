@@ -1,4 +1,4 @@
-![Vluds](/img/icon.png "Vluds Icon")    ![Vluds](/img/logo.png "Vluds Rebuild")
+![Vluds](/img/icon.png "Vluds Icon")  ![Vluds](/img/logo.png "Vluds Rebuild")
 
 # Vluds Rebuild
 A better definition of **social** network
