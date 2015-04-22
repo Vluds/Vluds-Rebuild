@@ -1,31 +1,7 @@
-function isUserLogged()
-{
-	$.post("src/php/executor.php", { action: "isUserLogged"}, function(data)
-	{
-		return data.result;
-
-	}, "json");
-}
-
 function loadModel(modelName)
 {
-	if(modelName == "home" || modelName == "register" || modelName == "login")
+	$("#ajax-container").stop().fadeOut(200).queue(function()
 	{
-		if(isUserLogged())
-		{
-			modelName == "profil";
-		}
-	}
-
-	if(modelName == "profil")
-	{
-		if(!isUserLogged())
-		{
-			modelName == "home";
-		}
-	}
-
-	$("#ajax-container").stop().fadeOut(200).queue(function() {
 		$(this).html("<p>Chargement ...</p>");
 
 		$.post("src/php/executor.php", { action: "loadModel", modelName: modelName}, function(data)
@@ -38,7 +14,8 @@ function loadModel(modelName)
 				{
 					if(isFileExist("css/" + modelName + "_style.css"))
 					{
-						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + modelName + '_style.css">').queue(function(){
+						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + modelName + '_style.css">').queue(function()
+						{
 							console.log("style loaded");
 
 							if(isFileExist("animations/" + modelName + "_animation.js"))
@@ -63,10 +40,9 @@ function loadModel(modelName)
 					}
 
 					return true;
-					
+						
 					$(this).dequeue();
 				});
-
 			}
 			else
 			{

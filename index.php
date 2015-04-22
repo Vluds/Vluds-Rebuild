@@ -53,7 +53,9 @@
 		<?php
 			if(isset($_GET['page']) AND !empty($_GET['page']))
 			{
-				if ($_GET['page'] == 'validation')
+				$modelName = $_GET['page'];
+
+				if($modelName == 'validation')
 				{
 					if(isset($_GET['username']) AND isset($_GET['activationKey']))
 					{
@@ -71,9 +73,22 @@
 				}
 				else
 				{
+					if($modelName == "home" || $modelName == "register" || $modelName == "login")
+					{
+						if(User::isLogged())
+						{
+							$modelName = "profil";
+						}
+					}
+					else if($modelName == "profil")
+					{
+						if(!User::isLogged())
+						{
+							$modelName = "home";
+						}
+					}
 		?>
-					var modelName = "<?php echo $_GET['page'];?>";
-					loadModel(modelName);
+					loadModel('<?php echo $modelName;?>');
 		<?php
 				}
 			}
