@@ -8,21 +8,21 @@ function loadModel(modelName)
 		{
 			if(data.result == true)
 			{
-				window.history.pushState({page: modelName}, modelName, modelName);
+				window.history.pushState({page: data.modelName}, data.modelName, data.modelName);
 
 				$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
 				{
-					if(isFileExist("css/" + modelName + "_style.css"))
+					if(isFileExist("css/" + data.modelName + "_style.css"))
 					{
-						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + modelName + '_style.css">').queue(function()
+						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + data.modelName + '_style.css">').queue(function()
 						{
 							console.log("style loaded");
 
-							if(isFileExist("animations/" + modelName + "_animation.js"))
+							if(isFileExist("animations/" + data.modelName + "_animation.js"))
 							{
 								$.ajax({
 									type: "GET",
-									url: "animations/" + modelName + "_animation.js",
+									url: "animations/" + data.modelName + "_animation.js",
 									dataType: "script",
 									error : function()
 									{

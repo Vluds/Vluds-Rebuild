@@ -73,20 +73,6 @@
 				}
 				else
 				{
-					if($modelName == "home" || $modelName == "register" || $modelName == "login")
-					{
-						if(User::isLogged())
-						{
-							$modelName = "profil";
-						}
-					}
-					else if($modelName == "profil")
-					{
-						if(!User::isLogged())
-						{
-							$modelName = "home";
-						}
-					}
 		?>
 					loadModel('<?php echo $modelName;?>');
 		<?php

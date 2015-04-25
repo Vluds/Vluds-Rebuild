@@ -339,6 +339,10 @@ footer
 {
 	color: rgba(30, 30, 30, 1);
 }
+.popup-box .button
+{
+	width: 100%;
+}
 
 .button
 {

@@ -31,6 +31,7 @@
 				if($returnModel['result'] == true)	
 				{
 					$dataArray['reply'] = $returnModel['reply'];
+					$dataArray['modelName'] = $returnModel['modelName'];
 					$dataArray['result'] = $returnModel['result'];
 				}
 				else

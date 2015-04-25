@@ -12,6 +12,21 @@ class Engine
 
 	public static function loadModel($modelName)
 	{
+		if($modelName == "home" || $modelName == "register" || $modelName == "login")
+		{
+			if(User::isLogged())
+			{
+				$modelName = "profil";
+			}
+		}
+		else if($modelName == "profil")
+		{
+			if(!User::isLogged())
+			{
+				$modelName = "home";
+			}
+		}
+
 		$modelFilename = '../../models/'.$modelName.'.php';
 
 		if(file_exists($modelFilename)) 
@@ -26,10 +41,12 @@ class Engine
 			ob_end_clean();
 
 			$dataArray['result'] = true;
+			$dataArray['modelName'] = $modelName;
 		} 
 		else 
 		{
 			$dataArray['result'] = false;
+			$dataArray['modelName'] = null;
 			$dataArray['error'] = "Le modele n'existe pas !";
 		}
 

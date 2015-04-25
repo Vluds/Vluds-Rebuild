@@ -14,27 +14,7 @@
 	</div>
 
 	<div id="text-container">
-<?php 	
-		if(empty(User::getFullname()))
-		{
-?>
-			<h2><?php echo User::getUsername();?></h2>
-<?php
-		}
-		else
-		{
-?>
-			<h2><?php echo User::getFullname();?></h2>
-<?php
-		}
 
-		if(empty(User::getAvatar()))
-		{
-?>
-			<h3>Tu n'as pas encore d'avatar</h3>
-<?php
-		}
-?>
 	</div>
 
 	<div id="options-container">
