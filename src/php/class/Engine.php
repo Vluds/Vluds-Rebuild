@@ -16,7 +16,7 @@ class Engine
 		{
 			if(User::isLogged())
 			{
-				$modelName = "profil";
+				$modelName = "flux";
 			}
 		}
 		else if($modelName == "profil")
@@ -73,6 +73,19 @@ class Engine
 		mail($to, $subject, $message, $headers);
 		
 		$dataArray['result'] = true;
+
+		return true;
+	}
+
+	public static function messageBox($title, $message)
+	{
+		ob_start();
+		include('../../includes/messageBox.php');
+		$dataArray['reply'] .= ob_get_contents();
+		ob_end_clean();
+		
+		$dataArray['result'] = true;
+		$dataArray['error'] = "Le modele n'existe pas !";
 
 		return true;
 	}

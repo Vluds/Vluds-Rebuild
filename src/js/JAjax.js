@@ -136,8 +136,12 @@ function logUser()
 				if(data.result == true)
 				{
 					$('#login-container #info-container #error-container').slideUp(200);
-					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400);
-					loadModel('profil');
+					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400).delay(500).queue(function()
+					{
+						loadModel('flux');
+
+						$(this).dequeue();
+					});
 				}
 				else
 				{
@@ -155,6 +159,26 @@ function logUser()
 	{
 		$('#login-form #username-input').parent().parent().find('.info-form-input p').html("<p>Ce champs est vide !</p>").parent().fadeIn(400);
 	}
+}
+
+function logOut()
+{
+	$.post("src/php/executor.php", { action: "logOut"}, function(data)
+	{
+		if(data.result == 1)
+		{	
+			loadSideBar();
+
+			getFlux();
+
+			messageBox("Attention", "Vous êtes maintenant déconnecté !");
+		}
+		else
+		{
+			messageBox("Erreur", "Nous n'avons pas pu vous déconnecter !");
+		}
+
+	}, "json");
 }
 
 function accountActivation(username, activationKey)
@@ -175,4 +199,59 @@ function accountActivation(username, activationKey)
 		}, "json");
 	});
 	
+}
+
+function setTime()
+{
+	$.post("src/php/executor.php", { action: "setTime"}, function(data)
+	{
+		if(data.result == 1)
+		{
+			console.log("time set");
+		}
+		else
+		{
+			console.log("time not set");
+		}
+
+	}, "json");
+}
+
+function checkToken()
+{
+	$.post("src/php/executor.php", { action: "checkToken"}, function(data)
+	{
+		if(data.result == 1)
+		{
+			
+		}
+		else if(data.result == 0)
+		{
+			logOut();
+
+			messageBox("Aie ...", "Vos tokens ne sont plus valide !");
+		}
+		else if(data.result == -1)
+		{
+			console.log('Non connecté')
+		}
+
+	}, "json");
+}
+
+function messageBox(title, message)
+{
+	$.post("src/php/executor.php", { action: "messageBox"}, function(data)
+	{
+		if(data.result)
+		{
+			$('#background-container').append(data.reply);
+			showPopUp('messageBox');
+		}
+		else
+		{
+
+		}
+
+	}, "json");
 }

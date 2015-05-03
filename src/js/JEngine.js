@@ -1,4 +1,10 @@
-/*Start function*/
+var checkToken = setInterval(checkToken, 10000);
+
+$(document).on('click', function() 
+{
+	setTime();
+});
+
 checkAcceptationCookies();
 
 var statePage;

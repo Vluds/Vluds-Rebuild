@@ -1,0 +1,10 @@
+#flux-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	width: 500px;
+	text-align: center;
+
+	display: none;
+}

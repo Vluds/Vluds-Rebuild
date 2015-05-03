@@ -10,11 +10,11 @@ $(document).on('mouseenter', '.button', function()
 
 }).on('mouseleave', '.button', function() 
 {
-	$(this).stop().animate({backgroundColor: "transparent"}, 400);
+	$(this).stop().animate({backgroundColor: "rgb(245, 245, 245)"}, 400);
 	$('p', this).stop().animate({color: "rgba(37, 199, 125, 1)"}, 200);
 }).on('click', '.button', function() 
 {
-	$(this).stop().animate({backgroundColor: "transparent"}, 100);
+	$(this).stop().animate({backgroundColor: "rgb(245, 245, 245)"}, 100);
 	$('p', this).stop().animate({color: "rgba(37, 199, 125, 1)"}, 200);
 });
 

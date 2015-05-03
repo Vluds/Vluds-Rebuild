@@ -100,6 +100,48 @@
 			}
 		}
 
+		if($action == "logOut")
+		{
+			if(User::logOut())
+			{
+				$dataArray['result'] = 1;
+			}
+			else
+			{
+				$dataArray['result'] = 0;
+			}
+		}
+
+		////////setTime///////
+		if($action == "setTime")
+		{
+			if(User::setTime())
+			{
+				$dataArray['result'] = 1;
+			}
+			else
+			{
+				$dataArray['result'] = 0;
+			}
+		}
+
+		if($action == "checkToken") 
+		{
+			$returnToken = User::checkToken();
+			if($returnToken == 1)
+			{
+				$dataArray['result'] = 1;
+			}
+			else if ($returnToken == -1)
+			{
+				$dataArray['result'] = -1;
+			}
+			else
+			{
+				$dataArray['result'] = 0;
+			}
+		}
+
 		if($action == "checkActivationKey")
 		{
 			if(isset($_POST['username']) AND isset($_POST['activationKey']))
@@ -115,6 +157,33 @@
 				{
 					$dataArray['reply'] = $returnCheck['reply'];
 					$dataArray['result'] = $returnCheck['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
+
+		if($action == "messageBox")
+		{
+			if(isset($_POST['title']) AND isset($_POST['message']))
+			{
+				$title = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['title']));
+				$message = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['message']));
+
+				$returnBox = array();
+				$returnBox = User::checkActivationKey($title, $message);
+				$dataArray['error'] = $returnBox['error'];
+
+				if($returnBox['result'] == true)
+				{
+					$dataArray['reply'] = $returnBox['reply'];
+					$dataArray['result'] = $returnBox['result'];
 				}
 				else
 				{

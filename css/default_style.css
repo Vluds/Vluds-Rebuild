@@ -112,16 +112,55 @@ header
 {
 	padding-top: 20px;
 	padding-left: 40px;
+	padding-right: 40px;
 	position: fixed;
 	z-index: 5;
+	height: 80px;
+	width: 100%;
+	box-sizing: border-box;
 
 	display: none;
+}
+
+header nav
+{
+	height: 100%;
+}
+
+header nav ul
+{
+	height: 100%;
+}
+
+header nav ul#left-container
+{
+	float: left;
+}
+header nav ul#right-container
+{
+	float: right;
+}
+#right-container #username
+{
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 60px;
+}
+#right-container .mini-avatar
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header nav ul li
+{
+	height: 100%;
 }
 
 #logo
 {
 	width: 144px;
-	height: 47px;
 	/*background-image: url('../img/logo.png');*/
 	background-position: center center; 
 	background-repeat: no-repeat;
@@ -151,6 +190,22 @@ section
 	z-index: -1;
 
 	opacity: 0;
+}
+
+.mini-avatar
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	overflow: hidden;
+	background-color: rgba(37, 199, 125, 1);
+	border: 3px solid rgba(37, 199, 125, 1);
+	margin: auto;
+}
+.mini-avatar img
+{
+	width: 50px;
+	height: 50px;
 }
 
 .account .avatar
@@ -315,6 +370,18 @@ footer
 	box-sizing: border-box;
 	cursor: pointer;
 }
+/*#background-container #close-background p::after
+{
+	content: "×";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 35px;
+	line-height: 35px;
+	text-align: center;
+}*/
 
 .popup-box
 {
@@ -349,7 +416,7 @@ footer
 	min-width: 150px;
 	height: 45px;
 	border-radius: 15px;
-	background-color: transparent;
+	background-color: rgb(245, 245, 245);
 	border: 1px solid rgba(37, 199, 125, 1);
 	line-height: 44px;
 	box-sizing: border-box;
@@ -359,6 +426,7 @@ footer
 	display: inline-block;
 	padding-left: 15px;
 	padding-right: 15px;
+	z-index: 1;
 }
 .button p
 {

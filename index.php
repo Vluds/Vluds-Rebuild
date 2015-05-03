@@ -30,20 +30,34 @@
 	<body>
 		<header>
 			<nav>
-				<ul>
+				<ul id="left-container">
 					<li id="logo" onClick="loadModel('home')"><h1>Vluds</h1></li>
 				</ul>
 
-				<ul>
+				<ul id="right-container">
 		<?php
-					if(User::isLogged())
-					{
-
+				if(User::isLogged())
+				{
 		?>
-						<li><?php echo User::getUsername();?></li>
+					<li id="username"><h3><?php echo User::getUsername();?></h3></li>
+					<li class="mini-avatar">
+		<?php
+					if(!empty(User::getAvatar()))
+					{
+		?>
+						<img src="<?php echo User::getAvatar();?>"/>
 		<?php
 					}
+					else
+					{
 		?>
+							
+						<img src="img/avatar.png">
+		<?php
+					}
+				}
+		?>
+					</li>
 				</ul>
 			</nav>
 		</header>
