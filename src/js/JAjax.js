@@ -1,3 +1,51 @@
+function loadHeader()
+{
+	$("header").stop().fadeOut(200).queue(function()
+	{
+		$(this).html("<p>Chargement ...</p>");
+
+		$.post("src/php/executor.php", { action: "loadHeader"}, function(data)
+		{
+			if(data.result == true)
+			{
+				$("header").html(data.reply).fadeIn(200);
+			}
+			else
+			{
+				alert(data.error);
+				$("header").fadeIn(200);
+			}
+
+		}, "json");
+
+		$(this).dequeue();
+	});
+}
+
+function loadNavBar()
+{
+	$("#navbar-container").stop().fadeOut(200).queue(function()
+	{
+		$(this).html("<p>Chargement ...</p>");
+
+		$.post("src/php/executor.php", { action: "loadNavBar"}, function(data)
+		{
+			if(data.result == true)
+			{
+				$("#navbar-container").html(data.reply).fadeIn(200);
+			}
+			else
+			{
+				alert(data.error);
+				$("#navbar-container").fadeIn(200);
+			}
+
+		}, "json");
+
+		$(this).dequeue();
+	});
+}
+
 function loadModel(modelName)
 {
 	$("#ajax-container").stop().fadeOut(200).queue(function()
@@ -38,8 +86,6 @@ function loadModel(modelName)
 							$(this).dequeue();
 						});
 					}
-
-					return true;
 						
 					$(this).dequeue();
 				});
@@ -138,6 +184,7 @@ function logUser()
 					$('#login-container #info-container #error-container').slideUp(200);
 					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400).delay(500).queue(function()
 					{
+						loadHeader();
 						loadModel('flux');
 
 						$(this).dequeue();
@@ -167,8 +214,7 @@ function logOut()
 	{
 		if(data.result == 1)
 		{	
-			loadSideBar();
-
+			loadHeader();
 			getFlux();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");

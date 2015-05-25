@@ -14,7 +14,7 @@
 	</div>
 
 	<div id="text-container">
-		<h2>Hey ! De retour ?</h2>
+		<h2>De retour ?</h2>
 		<h3>Connecte-toi ...</h3>
 	</div>
 

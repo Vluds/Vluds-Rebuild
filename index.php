@@ -29,38 +29,23 @@
 
 	<body>
 		<header>
-			<nav>
-				<ul id="left-container">
-					<li id="logo" onClick="loadModel('home')"><h1>Vluds</h1></li>
-				</ul>
-
-				<ul id="right-container">
-		<?php
-				if(User::isLogged())
-				{
-		?>
-					<li id="username"><h3><?php echo User::getUsername();?></h3></li>
-					<li class="mini-avatar">
-		<?php
-					if(!empty(User::getAvatar()))
-					{
-		?>
-						<img src="<?php echo User::getAvatar();?>"/>
-		<?php
-					}
-					else
-					{
-		?>
-							
-						<img src="img/avatar.png">
-		<?php
-					}
-				}
-		?>
-					</li>
-				</ul>
-			</nav>
+			<script type="text/javascript">
+				loadHeader();
+			</script>
 		</header>
+
+		<nav id="navbar">
+			<script type="text/javascript">
+		<?php
+			if(User::isLogged())
+			{
+		?>
+				loadNavBar();
+		<?php
+			}
+		?>
+			</script>
+		</nav>
 
 		<section id="ajax-container">
 			<script type="text/javascript">

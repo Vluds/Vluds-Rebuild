@@ -18,6 +18,40 @@
 			$dataArray['result'] = User::isLogged();
 		}
 
+		if($action == "loadHeader")
+		{
+			$returnModel = array();
+			$returnModel = Engine::loadHeader();
+			$dataArray['error'] = $returnModel['error'];
+
+			if($returnModel['result'] == true)	
+			{
+				$dataArray['reply'] = $returnModel['reply'];
+				$dataArray['result'] = $returnModel['result'];
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
+
+		if($action == "loadNavBar")
+		{
+			$returnModel = array();
+			$returnModel = Engine::loadNavBar();
+			$dataArray['error'] = $returnModel['error'];
+
+			if($returnModel['result'] == true)	
+			{
+				$dataArray['reply'] = $returnModel['reply'];
+				$dataArray['result'] = $returnModel['result'];
+			}
+			else
+			{
+				$dataArray['result'] = false;
+			}
+		}
+
 		if($action == "loadModel")
 		{
 			if(isset($_POST['modelName']))

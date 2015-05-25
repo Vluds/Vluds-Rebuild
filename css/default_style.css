@@ -112,7 +112,7 @@ header
 {
 	padding-top: 20px;
 	padding-left: 40px;
-	padding-right: 40px;
+	padding-right: 20px;
 	position: fixed;
 	z-index: 5;
 	height: 80px;
@@ -139,18 +139,30 @@ header nav ul#left-container
 header nav ul#right-container
 {
 	float: right;
+	line-height: 60px;
 }
 #right-container #username
 {
-	margin-right: 10px;
+	margin-right: 5px;
 	display: inline-block;
 	vertical-align: middle;
-	line-height: 60px;
+	
+	cursor: pointer;
 }
-#right-container .mini-avatar
+#right-container #navbar-button
 {
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: -35%;
+	background-image: url("../img/navbar_button.png");
+	background-size: 60% auto;
+	background-position: center center;
+	background-repeat: no-repeat;
+	/*border: 1px solid rgba(37, 199, 125, 1);*/
+	border-radius: 50%;
+	height: 45px;
+	width: 45px;
+	box-sizing: border-box;
+	cursor: pointer;
 }
 
 header nav ul li
@@ -165,6 +177,17 @@ header nav ul li
 	background-position: center center; 
 	background-repeat: no-repeat;
 	cursor: pointer;
+}
+
+#navbar
+{
+	height: 100%;
+	position: absolute;
+	right: 0;
+	background-color: rgba(30, 30, 30, 1);
+	z-index: 2;
+
+	display: none;
 }
 
 section
@@ -201,6 +224,9 @@ section
 	background-color: rgba(37, 199, 125, 1);
 	border: 3px solid rgba(37, 199, 125, 1);
 	margin: auto;
+
+	display: inline-block;
+	vertical-align: middle;
 }
 .mini-avatar img
 {
@@ -300,6 +326,26 @@ footer
 	background: rgba(245, 245, 245, 0.7);
 }
 
+.blur-left
+{
+	height: 56px;
+	width: 35px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 20px 0px 10px 2px rgba(245, 245, 245, 1) inset;
+}
+
+.blur-right
+{
+	height: 56px;
+	width: 35px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-shadow: -20px 0px 10px 2px rgba(245, 245, 245, 1) inset;
+}
+
 .info-form-input
 {
 	position: absolute;
@@ -366,7 +412,7 @@ footer
 	height: 40px;
 	width: 40px;
 	border: 1px solid rgba(37, 199, 125, 1);
-	border-radius: 100px;
+	border-radius: 50%;
 	box-sizing: border-box;
 	cursor: pointer;
 }
@@ -453,4 +499,5 @@ input
 	font-weight: normal;
 	color: rgba(30, 30, 30, 1);
 	min-width: 250px;
+	outline-style: none;
 }

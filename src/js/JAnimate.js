@@ -39,7 +39,7 @@ $(document).on('mouseenter', '#background-container #close-background', function
 	$(this).stop().animate({backgroundColor: "transparent"}, 400).css({backgroundImage: "url('img/cross.png')"}, 200);
 }).on('click', '#background-container #close-background', function() 
 {
-	$(this).stop().animate({backgroundColor: "transparent"}, 100).css({backgroundImage: "url('img/cross.png')"}, 200);;
+	$(this).stop().animate({backgroundColor: "transparent"}, 100).css({backgroundImage: "url('img/cross.png')"}, 200);
 	closeBackground();
 });
 
@@ -52,3 +52,40 @@ function closeBackground()
 {
 	$('#background-container').stop().fadeOut(500);
 }
+
+var navBarOpen = false;
+
+$(document).on('click', '#navbar-button', function()
+{
+	var navBar = $("#navbar");
+
+	if(!navBarOpen)
+	{
+		navBar.show()
+		.stop().animate({
+			width: '270px',
+		}, 300);
+
+		$(this).fadeOut(200)
+		.css({
+			backgroundImage: "url('img/navbar_button_open.png')"
+		})
+		.fadeIn(200);
+
+		navBarOpen = true;
+	}
+	else
+	{
+		navBar.stop().animate({
+			width: '0px'
+		}, 300);
+
+		$(this).fadeOut(200)
+		.css({
+			backgroundImage: "url('img/navbar_button.png')"
+		})
+		.fadeIn(200);
+
+		navBarOpen = false;
+	}
+});

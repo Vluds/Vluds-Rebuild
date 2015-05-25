@@ -10,6 +10,39 @@ class Engine
 		$this->newbdd = new BDD();
 	}
 
+	public static function loadHeader()
+	{
+		$newStaticBdd = new BDD();
+		$dataArray['reply'] = "";
+		$dataArray['error'] = null;
+
+		ob_start();
+		include('../../includes/header.php');
+		$dataArray['reply'] .= ob_get_contents();
+		ob_end_clean();
+
+		$dataArray['result'] = true;
+
+		return $dataArray; 
+	}
+
+	public static function loadNavBar()
+	{
+		$newStaticBdd = new BDD();
+		$dataArray['reply'] = "";
+		$dataArray['error'] = null;
+
+		ob_start();
+		include('../../includes/navbar.php');
+		$dataArray['reply'] .= ob_get_contents();
+		ob_end_clean();
+
+		$dataArray['result'] = true;
+
+		return $dataArray; 
+	}
+
+
 	public static function loadModel($modelName)
 	{
 		if($modelName == "home" || $modelName == "register" || $modelName == "login")
@@ -19,7 +52,7 @@ class Engine
 				$modelName = "flux";
 			}
 		}
-		else if($modelName == "profil")
+		else if($modelName == "profil" || $modelName == "flux")
 		{
 			if(!User::isLogged())
 			{
@@ -77,6 +110,23 @@ class Engine
 		return true;
 	}
 
+	public static function getAccounts()
+	{
+		$newStaticBdd = new BDD();
+
+		$UserInfo = $newStaticBdd->select("*", "users", "LIMIT 0, 10");
+
+		while($getUserInfo = $newStaticBdd->fetch_array($UserInfo))
+		{
+			ob_start();
+			include('../../includes/account.php');
+			$dataArray['reply'] .= ob_get_contents();
+			ob_end_clean();
+		}
+
+		return $dataArray['reply'];
+	}
+
 	public static function messageBox($title, $message)
 	{
 		ob_start();
@@ -85,9 +135,9 @@ class Engine
 		ob_end_clean();
 		
 		$dataArray['result'] = true;
-		$dataArray['error'] = "Le modele n'existe pas !";
+		$dataArray['error'] = null;
 
-		return true;
+		return $dataArray;
 	}
 }
 

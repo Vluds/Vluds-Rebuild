@@ -29,4 +29,12 @@
 			<p>Me connecter</p>
 		</div>
 	</div>
+
+	<!--<div id="members-container">
+		<div id="overflow-container">
+			<div class="blur-left"></div>
+			<?php echo Engine::getAccounts();?>
+			<div class="blur-right"></div>
+		</div>
+	</div>-->
 </div>
