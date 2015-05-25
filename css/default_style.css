@@ -182,6 +182,7 @@ header nav ul li
 #navbar
 {
 	height: 100%;
+	width: 0;
 	position: absolute;
 	right: 0;
 	background-color: rgba(30, 30, 30, 1);

@@ -58,38 +58,47 @@ var navBarOpen = false;
 $(document).on('click', '#navbar-button', function()
 {
 	var navBar = $("#navbar");
+	var navbarButton = $(this);
 
 	if(!navBarOpen)
 	{
-		$('header #username').fadeOut(200);
+		$('header #username').stop().fadeOut(200);
 
-		navBar.show()
-		.stop().animate({
+		navBar.fadeIn(0).stop().animate({
 			width: '270px',
 		}, 300);
 
-		$(this).fadeOut(200)
-		.css({
-			backgroundImage: "url('img/navbar_button_open.png')"
-		})
-		.fadeIn(200);
-
 		navBarOpen = true;
+
+		navbarButton.fadeOut(200).queue(function()
+		{
+			$(this).css({
+				backgroundImage: "url('img/navbar_button_open.png')"
+			})
+			.fadeIn(200);
+
+			$(this).dequeue();
+		});
+
 	}
 	else
 	{
-		$('header #username').fadeIn(400);
+		$('header #username').stop().fadeIn(400);
 
 		navBar.stop().animate({
 			width: '0px'
 		}, 300).fadeOut(0);
 
-		$(this).fadeOut(200)
-		.css({
-			backgroundImage: "url('img/navbar_button.png')"
-		})
-		.fadeIn(200);
-
 		navBarOpen = false;
+
+		navbarButton.fadeOut(200).queue(function()
+		{
+			$(this).css({
+				backgroundImage: "url('img/navbar_button.png')"
+			})
+			.fadeIn(200);
+
+			$(this).dequeue();
+		});
 	}
 });
