@@ -24,7 +24,7 @@ function loadHeader()
 
 function loadNavBar()
 {
-	$("#navbar-container").stop().fadeOut(200).queue(function()
+	$("#navbar").stop().fadeOut(200).queue(function()
 	{
 		$(this).html("<p>Chargement ...</p>");
 
@@ -32,12 +32,12 @@ function loadNavBar()
 		{
 			if(data.result == true)
 			{
-				$("#navbar-container").html(data.reply).fadeIn(200);
+				$("#navbar").html(data.reply);
 			}
 			else
 			{
 				alert(data.error);
-				$("#navbar-container").fadeIn(200);
+				$("#navbar");
 			}
 
 		}, "json");
@@ -185,6 +185,7 @@ function logUser()
 					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400).delay(500).queue(function()
 					{
 						loadHeader();
+						loadNavBar();
 						loadModel('flux');
 
 						$(this).dequeue();
@@ -215,6 +216,7 @@ function logOut()
 		if(data.result == 1)
 		{	
 			loadHeader();
+			loadNavBar();
 			getFlux();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");

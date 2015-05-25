@@ -61,6 +61,8 @@ $(document).on('click', '#navbar-button', function()
 
 	if(!navBarOpen)
 	{
+		$('header #username').fadeOut(200);
+
 		navBar.show()
 		.stop().animate({
 			width: '270px',
@@ -76,9 +78,11 @@ $(document).on('click', '#navbar-button', function()
 	}
 	else
 	{
+		$('header #username').fadeIn(400);
+
 		navBar.stop().animate({
 			width: '0px'
-		}, 300);
+		}, 300).fadeOut(0);
 
 		$(this).fadeOut(200)
 		.css({
