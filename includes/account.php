@@ -1,4 +1,4 @@
-<div class="mini-avatar">
+<div class="mini-avatar" id="<?php echo $getUserInfo['username'];?>">
 <?php
 		if(isset($getUserInfo['avatar']) AND !empty($getUserInfo['avatar']))
 		{

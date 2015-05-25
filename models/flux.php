@@ -2,22 +2,15 @@
 	document.title = "Vluds - Flux";
 </script>
 
-<div class="align-middle"></div>
-
 <div id="flux-container">
-	<div id="accounts-container">
+	<div class="align-middle"></div>
+	<div id="1" class="area">
 		<div class="account">
+			<div class="align-middle"></div>
 			<div class="avatar">
 				<img src="img/avatar.png">
 			</div>
 		</div>
-	</div>
-
-	<div id="text-container">
-
-	</div>
-
-	<div id="options-container">
-		
+		<?php echo Engine::getAccounts();?>
 	</div>
 </div>

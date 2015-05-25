@@ -1,10 +1,56 @@
 #flux-container
 {
-	display: inline-block;
-	vertical-align: middle;
-	margin: auto;
-	width: 500px;
+	width: 100%;
+	height: 100%;
 	text-align: center;
+	box-sizing: border-box;
 
 	display: none;
+}
+
+.area
+{
+	width: 500px;
+	height: 500px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	margin: auto;
+	display: inline-block;
+	vertical-align: middle;
+
+
+
+	position: relative;
+}
+.area .account
+{
+	height: 100%;
+}
+.area .account .avatar
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.mini-avatar
+{
+	position: absolute;
+	
+	top: -50%;
+	bottom: -50%;
+	right: -50%;
+	left: -50%;
+
+	width: 70px;
+	height: 70px;
+
+	overflow: hidden;
+	background-color: rgba(37, 199, 125, 1);
+	border: 3px solid rgba(37, 199, 125, 1);
+	z-index: -2;
+}
+.mini-avatar img
+{
+	width: 70px;
+	height: 70px;
 }
