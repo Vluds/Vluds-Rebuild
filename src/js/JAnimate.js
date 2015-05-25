@@ -68,6 +68,10 @@ $(document).on('click', '#navbar-button', function()
 			width: '270px',
 		}, 300);
 
+		$('#ajax-container').stop().animate({
+			paddingRight: '270px',
+		}, 300);
+
 		navBarOpen = true;
 
 		navbarButton.fadeOut(200).queue(function()
@@ -88,6 +92,10 @@ $(document).on('click', '#navbar-button', function()
 		navBar.stop().animate({
 			width: '0px'
 		}, 300).fadeOut(0);
+
+		$('#ajax-container').stop().animate({
+			paddingRight: '0',
+		}, 300);
 
 		navBarOpen = false;
 
