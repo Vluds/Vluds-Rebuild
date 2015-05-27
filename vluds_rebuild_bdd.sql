@@ -33,6 +33,18 @@ CREATE TABLE IF NOT EXISTS `color_ref` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+--
+-- Contenu de la table `color_ref`
+--
+
+INSERT INTO `color_ref` (`id`, `name`, `ref`) VALUES
+(0, 'green', 'rgb(75, 214, 150)'),
+(1, 'red', 'rgb(213, 76, 76)'),
+(2, 'blue', 'rgb(64, 111, 180)'),
+(3, 'orange', 'rgb(238, 125, 56)'),
+(4, 'purple', 'rgb(125, 72, 214)'),
+(5, 'yelow', 'rgb(214, 209, 72)');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
