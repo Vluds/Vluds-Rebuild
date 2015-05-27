@@ -146,6 +146,26 @@ class User
 			return $getFullName['fullname'];
 		}
 	}
+
+	public static function getPersonalAccounts()
+	{
+		$newStaticBdd = new BDD();
+
+		$UserInfo = $newStaticBdd->select("*", "users", "LIMIT 0, 10");
+
+		while($getUserInfo = $newStaticBdd->fetch_array($UserInfo))
+		{
+			if($getUserInfo['id'] != User::getId())
+			{
+				ob_start();
+				include('../../includes/account.php');
+				$dataArray['reply'] .= ob_get_contents();
+				ob_end_clean();
+			}
+		}
+
+		return $dataArray['reply'];
+	}
 	
 	public static function regUser($username, $password, $email)
 	{	

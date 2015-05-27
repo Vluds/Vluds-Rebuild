@@ -11,6 +11,6 @@
 				<img src="img/avatar.png">
 			</div>
 		</div>
-		<?php echo Engine::getAccounts();?>
+		<?php echo User::getPersonalAccounts();?>
 	</div>
 </div>

@@ -7,9 +7,6 @@ $('#flux-container').ready(function()
 	});
 });
 
-$(document).on('mouseenter', '.avatar', function() {
-	$('img', this).shake(500);
-});
 
 function movement()
 {

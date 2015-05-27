@@ -88,7 +88,7 @@ $(document).on('click', '#navbar-button', function()
 	else
 	{
 		$('header #username').stop().fadeIn(400);
-
+		
 		navBar.stop().animate({
 			width: '0px'
 		}, 300).fadeOut(0);

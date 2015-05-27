@@ -9,7 +9,7 @@
 				<tr>
 					<td class="margin-mail" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);"></td>
 					<td style="height: 100px;border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-						<img src="../img/logo.png" alt="vluds-logo">
+						<img src="http://rebuild.vluds.eu/img/logo.png" alt="vluds-logo">
 					</td>
 					<td class="margin-mail" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);"></td>
 				</tr>

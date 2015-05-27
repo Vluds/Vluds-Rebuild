@@ -1,3 +1,14 @@
+/*body
+{
+	background: url('../img/background_3.png');
+	background-size: cover;
+}*/
+
+footer
+{
+	display: none;
+}
+
 #flux-container
 {
 	width: 100%;
@@ -18,13 +29,12 @@
 	display: inline-block;
 	vertical-align: middle;
 
-
-
 	position: relative;
 }
 .area .account
 {
 	height: 100%;
+	z-index: 3;
 }
 .area .account .avatar
 {
@@ -43,14 +53,31 @@
 
 	width: 70px;
 	height: 70px;
-
 	overflow: hidden;
 	background-color: rgba(37, 199, 125, 1);
 	border: 3px solid rgba(37, 199, 125, 1);
-	z-index: -2;
+	border-radius: 50%;
+	margin: auto;
+	z-index: 2;
 }
 .mini-avatar img
 {
 	width: 70px;
 	height: 70px;
+}
+.mini-avatar .user-description
+{
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 15px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+
+	display: none;
+}
+.mini-avatar .user-description p
+{
+	color: rgb(30, 30, 30);
 }

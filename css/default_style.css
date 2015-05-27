@@ -212,6 +212,25 @@ header nav ul li
 	background-color: rgba(255, 255, 255, 0.1);
 	cursor: pointer;
 }
+#navbar .navbar-icon
+{
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 13px;
+}
+#navbar .navbar-text
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+#navbar .navbar-icon img
+{
+	height: 30px;
+	width: 30px;
+}
 #navbar #navbar-top
 {
 	text-align: center;
@@ -220,6 +239,10 @@ header nav ul li
 #navbar #navbar-top h3
 {
 	color: rgb(37, 199, 125);
+}
+#navbar #navbar-middle
+{
+	margin-top: 25px;
 }
 #navbar #navbar-bottom
 {
@@ -255,24 +278,6 @@ section
 	opacity: 0;
 }
 
-.mini-avatar
-{
-	width: 50px;
-	height: 50px;
-	border-radius: 100px;
-	overflow: hidden;
-	background-color: rgba(37, 199, 125, 1);
-	border: 3px solid rgba(37, 199, 125, 1);
-	margin: auto;
-
-	display: inline-block;
-	vertical-align: middle;
-}
-.mini-avatar img
-{
-	width: 50px;
-	height: 50px;
-}
 
 .account .avatar
 {
