@@ -213,11 +213,12 @@ function logOut()
 {
 	$.post("src/php/executor.php", { action: "logOut"}, function(data)
 	{
-		if(data.result == 1)
+		if(data.result == true)
 		{	
 			loadHeader();
 			loadNavBar();
-			getFlux();
+			loadModel('home');
+			navBarAction();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");
 		}

@@ -9,7 +9,7 @@
 	{
 ?>
 		<li id="username"><h3><?php echo User::getUsername();?></h3></li>
-		<li id="navbar-button"></li>
+		<li id="navbar-button" onClick="navBarAction()"></li>
 <?php
 	}
 ?>

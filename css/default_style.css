@@ -157,7 +157,7 @@ header nav ul#right-container
 	background-size: 60% auto;
 	background-position: center center;
 	background-repeat: no-repeat;
-	/*border: 1px solid rgba(37, 199, 125, 1);*/
+	/*border: 1px solid rgb(75, 214, 150);*/
 	border-radius: 50%;
 	height: 45px;
 	width: 45px;
@@ -285,8 +285,8 @@ section
 	height: 130px;
 	border-radius: 100px;
 	overflow: hidden;
-	background-color: rgba(37, 199, 125, 1);
-	border: 3px solid rgba(37, 199, 125, 1);
+	background-color: rgb(75, 214, 150);
+	border: 3px solid rgb(75, 214, 150);
 	margin: auto;
 }
 .account .avatar img
@@ -329,7 +329,7 @@ section
 
 #message-container
 {
-	background-color: rgba(37, 199, 125, 1);
+	background-color: rgb(75, 214, 150);
 	border-radius: 15px 15px 15px 15px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -456,7 +456,7 @@ footer
 	background-repeat: no-repeat;
 	height: 40px;
 	width: 40px;
-	border: 1px solid rgba(37, 199, 125, 1);
+	border: 1px solid rgb(75, 214, 150);
 	border-radius: 50%;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -508,7 +508,7 @@ footer
 	height: 45px;
 	border-radius: 15px;
 	background-color: rgb(245, 245, 245);
-	border: 1px solid rgba(37, 199, 125, 1);
+	border: 1px solid rgb(75, 214, 150);
 	line-height: 44px;
 	box-sizing: border-box;
 	margin: auto;
@@ -521,7 +521,7 @@ footer
 }
 .button p
 {
-	color: rgba(37, 199, 125, 1);
+	color: rgb(75, 214, 150);
 }
 
 form .button
@@ -532,7 +532,7 @@ form .button
 
 input
 {
-	border: 1px solid rgba(37, 199, 125, 1);
+	border: 1px solid rgb(75, 214, 150);
 	border-radius: 15px;
 	background-color: transparent;
 	padding-left: 13px;

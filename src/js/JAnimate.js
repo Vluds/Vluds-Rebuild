@@ -5,17 +5,17 @@ $(document).ready(function()
 
 $(document).on('mouseenter', '.button', function()
 {
-	$(this).stop().animate({backgroundColor: "rgba(37, 199, 125, 1)"}, 400);
+	$(this).stop().animate({backgroundColor: "rgb(75, 214, 150)"}, 400);
 	$('p', this).stop().animate({color: "rgba(255, 255, 255, 1)"}, 200);
 
 }).on('mouseleave', '.button', function() 
 {
 	$(this).stop().animate({backgroundColor: "rgb(245, 245, 245)"}, 400);
-	$('p', this).stop().animate({color: "rgba(37, 199, 125, 1)"}, 200);
+	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
 }).on('click', '.button', function() 
 {
 	$(this).stop().animate({backgroundColor: "rgb(245, 245, 245)"}, 100);
-	$('p', this).stop().animate({color: "rgba(37, 199, 125, 1)"}, 200);
+	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
 });
 
 function showPopUp(name)
@@ -32,7 +32,7 @@ function closePopUp()
 
 $(document).on('mouseenter', '#background-container #close-background', function()
 {
-	$(this).stop().animate({backgroundColor: "rgba(37, 199, 125, 1)"}, 400).css({backgroundImage: "url('img/cross_hover.png')"}, 200);
+	$(this).stop().animate({backgroundColor: "rgb(75, 214, 150)"}, 400).css({backgroundImage: "url('img/cross_hover.png')"}, 200);
 
 }).on('mouseleave', '#background-container #close-background', function() 
 {
@@ -54,59 +54,3 @@ function closeBackground()
 }
 
 var navBarOpen = false;
-
-$(document).on('click', '#navbar-button', function()
-{
-	var navBar = $("#navbar");
-	var navbarButton = $(this);
-
-	if(!navBarOpen)
-	{
-		$('header #username').stop().fadeOut(200);
-
-		navBar.fadeIn(0).stop().animate({
-			width: '270px',
-		}, 300);
-
-		$('#ajax-container').stop().animate({
-			paddingRight: '270px',
-		}, 300);
-
-		navBarOpen = true;
-
-		navbarButton.fadeOut(200).queue(function()
-		{
-			$(this).css({
-				backgroundImage: "url('img/navbar_button_open.png')"
-			})
-			.fadeIn(200);
-
-			$(this).dequeue();
-		});
-
-	}
-	else
-	{
-		$('header #username').stop().fadeIn(400);
-		
-		navBar.stop().animate({
-			width: '0px'
-		}, 300).fadeOut(0);
-
-		$('#ajax-container').stop().animate({
-			paddingRight: '0',
-		}, 300);
-
-		navBarOpen = false;
-
-		navbarButton.fadeOut(200).queue(function()
-		{
-			$(this).css({
-				backgroundImage: "url('img/navbar_button.png')"
-			})
-			.fadeIn(200);
-
-			$(this).dequeue();
-		});
-	}
-});

@@ -45,6 +45,8 @@ class User
 	{
 		$_COOKIE = array();
 		$_SESSION = array();
+
+		return true;
 	}
 
 	public static function getToken()
@@ -144,6 +146,21 @@ class User
 			$getFullName = $newStaticBdd->fetch_array($FullName);
 
 			return $getFullName['fullname'];
+		}
+	}
+
+	public static function getColor()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$UserInfo = $newStaticBdd->select("color", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getUserInfo = $newStaticBdd->fetch_array($UserInfo);
+
+			$Color = $newStaticBdd->select("*", "color_ref", "WHERE id LIKE '".$getUserInfo['color']."'");
+			$getColor = $newStaticBdd->fetch_array($Color);
+
+			return $getColor['ref'];
 		}
 	}
 

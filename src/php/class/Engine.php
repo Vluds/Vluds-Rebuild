@@ -139,6 +139,16 @@ class Engine
 
 		return $dataArray;
 	}
+
+	public static function getRefColor($id)
+	{
+		$newStaticBdd = new BDD();
+
+		$Color = $newStaticBdd->select("*", "color_ref", "WHERE id LIKE '".$id."'");
+		$getColor = $newStaticBdd->fetch_array($Color);
+
+		return $getColor['ref'];
+	}
 }
 
 ?>

@@ -135,7 +135,61 @@ function fluxAccount()
 	}
 }
 
+function navBarAction()
+{
+	var navBar = $("#navbar");
+	var navbarButton = $(this);
 
+	if(!navBarOpen)
+	{
+		$('header #username').stop().fadeOut(200);
+
+		navBar.fadeIn(0).stop().animate({
+			width: '270px',
+		}, 300);
+
+		$('#ajax-container').stop().animate({
+			paddingRight: '270px',
+		}, 300);
+
+		navBarOpen = true;
+
+		navbarButton.fadeOut(200).queue(function()
+		{
+			$(this).css({
+				backgroundImage: "url('img/navbar_button_open.png')"
+			})
+			.fadeIn(200);
+
+			$(this).dequeue();
+		});
+
+	}
+	else
+	{
+		$('header #username').stop().fadeIn(400);
+
+		navBar.stop().animate({
+			width: '0px'
+		}, 300).fadeOut(0);
+
+		$('#ajax-container').stop().animate({
+			paddingRight: '0',
+		}, 300);
+
+		navBarOpen = false;
+
+		navbarButton.fadeOut(200).queue(function()
+		{
+			$(this).css({
+				backgroundImage: "url('img/navbar_button.png')"
+			})
+			.fadeIn(200);
+
+			$(this).dequeue();
+		});
+	}
+}
 
 /*$(document).on('keyup', '#register-form input', function()
 {
