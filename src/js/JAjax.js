@@ -278,7 +278,7 @@ function checkToken()
 		{
 			logOut();
 
-			messageBox("Aie ...", "Vos tokens ne sont plus valide !");
+			console.log("Aie ...", "Vos tokens ne sont plus valide !");
 		}
 		else if(data.result == -1)
 		{
@@ -303,4 +303,72 @@ function messageBox(title, message)
 		}
 
 	}, "json");
+}
+
+function uploadAvatar(files, avatarFile)
+{
+	var file = files[0];
+
+	if(file.type.match('image.*'))
+	{
+	 	function ajaxRequest(callback)
+	 	{
+		 	var formData = new FormData();
+		 	formData.append("action", "uploadAvatar");
+		 	formData.append("avatarFile", file);
+
+		 	var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function() 
+			{
+		        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) 
+		        {
+		            var myArr = JSON.parse(xhr.responseText);
+        			callback(myArr);
+		        }
+			};
+
+			xhr.open('POST', 'src/php/executor.php', true);
+			xhr.send(formData);
+		}
+
+		function readData(sData) 
+		{
+			if(sData.result == true && sData.reply != false)
+			{
+				$('#sidebar #profil #avatar img').fadeOut(300)
+				.queue(function(){
+					$(this).attr("src", setJsPath + sData.reply)
+					.dequeue();
+				})
+				.fadeIn(300);
+
+				if(history.state.page == "profil")
+				{
+					$('#profil-container #profil #avatar img').fadeOut(300)
+					.queue(function(){
+						$(this).attr("src", setJsPath + sData.reply)
+						.dequeue();
+					})
+					.fadeIn(500);
+				}
+				
+			    messageBox("Votre avatar à bien été modifié !");
+			    console.log("avatar upload: done");
+			} 
+			else 
+			{
+			   	messageBox("Nous n'avons pas pu modifier votre avatar ... Veuillez réesayer avec un autre fichier.");
+			   	console.log("avatar upload: error");	    
+			}
+
+			console.log("error: " + sData.error);
+		}
+
+		ajaxRequest(readData);
+	}
+	else
+	{
+		messageBox("Le fichier n'est pas une image !");
+	}
 }

@@ -138,7 +138,7 @@ function fluxAccount()
 function navBarAction()
 {
 	var navBar = $("#navbar");
-	var navbarButton = $(this);
+	var navbarButton = $("header #navbar-button");
 
 	if(!navBarOpen)
 	{
@@ -190,6 +190,18 @@ function navBarAction()
 		});
 	}
 }
+
+function selectAvatar()
+{
+	$("#profil-container #options-container #avatar-upload").click();
+}
+
+$(document).on('change', '#profil-container #options-container #avatar-upload', function(event) 
+{
+	var avatarFile = $(this).val();
+
+    uploadAvatar(event.target.files, avatarFile);
+});
 
 /*$(document).on('keyup', '#register-form input', function()
 {

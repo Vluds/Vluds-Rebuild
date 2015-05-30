@@ -229,10 +229,29 @@
 				$dataArray['result'] = false;
 			}
 		}
+
+		if($action == "uploadAvatar") 
+		{
+			if(isset($_FILES['avatarFile']) and !empty($_FILES['avatarFile']))
+			{
+				$avatarFile = $_FILES['avatarFile'];
+
+				$returnAvatar = array();
+				$returnAvatar = User::uploadAvatar($avatarFile);
+				$dataArray['error'] = $returnAvatar['error'];
+				$dataArray['reply'] = $returnAvatar['reply'];
+				$dataArray['result'] = $returnAvatar['result'];
+			}
+			else
+			{
+				$dataArray['error'] = "Executor.php: File not set !";
+				$dataArray['result'] = false;
+			}
+		}
 	}
 	else
 	{
-		$dataArray['result'] = "error: POST NOT SET";
+		$dataArray['result'] = "Executor.php: POST NOT SET";
 	}
 
 	echo json_encode($dataArray);

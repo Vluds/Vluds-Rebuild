@@ -18,9 +18,10 @@
 	</div>
 
 	<div id="options-container">
-		<div onClick="editAvatar()" class="button">
+		<div onClick="selectAvatar()" class="button">
 			<p>Sélectionner un avatar</p>
 		</div>
+		<input id="avatar-upload" name="avatar-upload" accept="image/*" type="file">
 
 		<div id="link-container">
 			<span class="a" onClick=""><p>Options</p></span>

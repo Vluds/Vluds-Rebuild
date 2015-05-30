@@ -6,7 +6,9 @@
 		if(isset($getUserInfo['avatar']) AND !empty($getUserInfo['avatar']))
 		{
 ?>
-			<img src="<?php echo $getUserInfo['avatar'];?>">
+			<div class="avatar" style="background-image: url('users/<?php echo $getUserInfo['id'];?>/avatar/300_<?php echo $getUserInfo['avatar'];?>.png');">
+						
+			</div>
 
 <?php
 		}

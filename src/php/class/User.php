@@ -218,9 +218,11 @@ class User
 
 				$passwordHash = hash('sha256', $password).$salt;
 
+				$colorUser = mt_rand(0, 5);
+				
 				$activationKey = self::randomSalt(25);
 
-				$regUser = $newStaticBdd->insert("users", "username, password, salt, email, ip, activationKey", "'".$username."', '".$passwordHash."', '".$salt."', '".$email."', '".$ip."', '".$activationKey."'");
+				$regUser = $newStaticBdd->insert("users", "username, password, salt, email, ip, color, activationKey", "'".$username."', '".$passwordHash."', '".$salt."', '".$email."', '".$ip."', '".$colorUser."', '".$activationKey."'");
 
 				$UserId = $newStaticBdd->select("id", "users", "WHERE password LIKE '".$passwordHash."'");
 				$getUserId = $newStaticBdd->fetch_array($UserId);
@@ -462,22 +464,30 @@ class User
 					$cover300 = $avatarResized;
 				}
 
-				if(file_exists(ROOT."users/".User::getId()."/avatar"))
+				if(file_exists("../../users/".User::getId()."/avatar"))
 				{
-					imagepng($cover60, ROOT."users/".User::getId()."/avatar/60_".$avatarId.".png");
-					imagepng($cover300, ROOT."users/".User::getId()."/avatar/300_".$avatarId.".png");
+					imagepng($cover60, "../../users/".User::getId()."/avatar/60_".$avatarId.".png");
+					imagepng($cover300, "../../users/".User::getId()."/avatar/300_".$avatarId.".png");
+
+					$dataArray['result'] = true;
+					$dataArray['error'] = null;
 				}
 				else
 				{
-					return false;
+					$dataArray['result'] = false;
+					$dataArray['error'] = "User.php: Le chemin d'accès à l'avatar n'existe pas !";
 				}
 
-				return "users/".User::getId()."/avatar/300_".$avatarId.".png";
+				$dataArray['reply'] = "users/".User::getId()."/avatar/300_".$avatarId.".png";
 			}
 			else
 			{
-				return false;
+				$dataArray['result'] = false;
+				$dataArray['error'] = "User.php: file not set";
+				$dataArray['reply'] = null;
 			}
+
+			return $dataArray;
 		}
 	}
 }

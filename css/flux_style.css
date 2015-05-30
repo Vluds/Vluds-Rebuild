@@ -65,6 +65,12 @@ footer
 	width: 70px;
 	height: 70px;
 }
+.mini-avatar .avatar
+{
+	width: 70px;
+	height: 70px;
+	background-size: cover;
+}
 .mini-avatar .user-description
 {
 	position: absolute;
