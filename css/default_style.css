@@ -234,15 +234,33 @@ header nav ul li
 #navbar #navbar-top
 {
 	text-align: center;
-
 }
 #navbar #navbar-top h3
 {
 	color: rgb(37, 199, 125);
 }
-#navbar #navbar-middle
+#navbar #navbar-profil
 {
 	margin-top: 25px;
+	padding-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+#navbar #navbar-profil h3
+{
+	color: rgb(255, 255, 255);
+}
+#navbar #navbar-profil .account
+{
+	position: relative;
+}
+#navbar #navbar-middle
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 #navbar #navbar-bottom
 {
@@ -250,6 +268,14 @@ header nav ul li
 	position: absolute;
 	width: 100%;
 	bottom: 0;
+}
+
+.navbar-separator
+{
+	height: 2px;
+	width: 80%;
+	background-color: rgba(0, 0, 0, 0.3);
+	margin: auto;
 }
 
 section
