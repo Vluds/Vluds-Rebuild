@@ -168,7 +168,7 @@ class User
 	{
 		$newStaticBdd = new BDD();
 
-		$UserInfo = $newStaticBdd->select("*", "users", "LIMIT 0, 10");
+		$UserInfo = $newStaticBdd->select("*", "users", "ORDER BY RAND() LIMIT 0, 10");
 
 		while($getUserInfo = $newStaticBdd->fetch_array($UserInfo))
 		{
@@ -219,7 +219,7 @@ class User
 				$passwordHash = hash('sha256', $password).$salt;
 
 				$colorUser = mt_rand(0, 5);
-				
+
 				$activationKey = self::randomSalt(25);
 
 				$regUser = $newStaticBdd->insert("users", "username, password, salt, email, ip, color, activationKey", "'".$username."', '".$passwordHash."', '".$salt."', '".$email."', '".$ip."', '".$colorUser."', '".$activationKey."'");
