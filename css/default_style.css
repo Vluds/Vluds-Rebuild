@@ -195,9 +195,9 @@ header nav ul li
 }
 #navbar li
 {
-	height: 50px;
+	height: 55px;
 	width: 100%;
-	line-height: 50px;
+	line-height: 55px;
 	padding-left: 30px;
 	padding-right: 30px;
 	box-sizing: border-box;
@@ -220,6 +220,7 @@ header nav ul li
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 13px;
+	line-height: 100%;
 }
 #navbar .navbar-text
 {
@@ -259,7 +260,7 @@ header nav ul li
 }
 #navbar #navbar-middle
 {
-	margin-top: 20px;
+	
 	margin-bottom: 20px;
 }
 #navbar #navbar-bottom
@@ -273,8 +274,8 @@ header nav ul li
 .navbar-separator
 {
 	height: 2px;
-	width: 80%;
-	background-color: rgba(0, 0, 0, 0.2);
+	width: 50%;
+	background-color: rgba(0, 0, 0, 0.1);
 	margin: auto;
 }
 

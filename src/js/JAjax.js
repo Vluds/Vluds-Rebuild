@@ -58,14 +58,14 @@ function loadModel(modelName)
 			{
 				window.history.pushState({page: data.modelName}, data.modelName, data.modelName);
 
-				$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
+				if(isFileExist("css/" + data.modelName + "_style.css"))
 				{
-					if(isFileExist("css/" + data.modelName + "_style.css"))
+					$("head").append('<link rel="stylesheet" type="text/css" href="css/' + data.modelName + '_style.css">').queue(function()
 					{
-						$("head").append('<link rel="stylesheet" type="text/css" href="css/' + data.modelName + '_style.css">').queue(function()
-						{
-							console.log("style loaded");
-
+						console.log("style loaded");
+						
+						$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
+						{	
 							if(isFileExist("animations/" + data.modelName + "_animation.js"))
 							{
 								$.ajax({
@@ -74,7 +74,7 @@ function loadModel(modelName)
 									dataType: "script",
 									error : function()
 									{
-										   console.log("animation load: error");
+									   console.log("animation load: error");
 									},
 									complete: function()
 									{
@@ -85,10 +85,10 @@ function loadModel(modelName)
 
 							$(this).dequeue();
 						});
-					}
-						
-					$(this).dequeue();
-				});
+							
+						$(this).dequeue();
+					});
+				}
 			}
 			else
 			{
