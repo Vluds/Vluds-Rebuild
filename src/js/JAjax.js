@@ -63,7 +63,7 @@ function loadModel(modelName)
 					$("head").append('<link rel="stylesheet" type="text/css" href="css/' + data.modelName + '_style.css">').queue(function()
 					{
 						console.log("style loaded");
-						
+
 						$("#ajax-container").html(data.reply).fadeIn(200).queue(function()
 						{	
 							if(isFileExist("animations/" + data.modelName + "_animation.js"))
@@ -217,6 +217,7 @@ function logOut()
 		{	
 			loadHeader();
 			loadNavBar();
+			navBarAction();
 			loadModel('home');
 			navBarAction();
 
