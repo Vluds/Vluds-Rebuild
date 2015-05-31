@@ -179,6 +179,10 @@ header nav ul li
 	cursor: pointer;
 }
 
+#navbar > *
+{
+	display: none;
+}
 #navbar
 {
 	height: 100%;

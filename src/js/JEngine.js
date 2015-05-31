@@ -148,6 +148,8 @@ function navBarAction()
 			width: '270px',
 		}, 300);
 
+		navBar.children().stop().fadeIn(500);
+
 		$('#ajax-container').stop().animate({
 			paddingRight: '270px',
 		}, 300);
@@ -169,9 +171,12 @@ function navBarAction()
 	{
 		$('header #username').stop().fadeIn(400);
 
+		navBar.children().stop().fadeOut(100);
+			
 		navBar.stop().animate({
 			width: '0px'
 		}, 300).fadeOut(0);
+
 
 		$('#ajax-container').stop().animate({
 			paddingRight: '0',
