@@ -18,6 +18,19 @@ $(document).on('mouseenter', '.button', function()
 	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
 });
 
+$(document).on('mouseenter', '#navbar li', function()
+{
+	$(this).stop().animate({backgroundColor: "rgba(0, 0, 0, 0.5)"}, 200);
+
+}).on('mouseleave', '#navbar li', function() 
+{
+	$(this).stop().animate({backgroundColor: "transparent"}, 200);
+
+}).on('click', '#navbar li', function() 
+{
+	$(this).stop().animate({backgroundColor: "rgba(255, 255, 255, 0.1)"}, 400).animate({backgroundColor: "rgba(0, 0, 0, 0.5)"}, 50);
+});
+
 function showPopUp(name)
 {
 	showBackground();

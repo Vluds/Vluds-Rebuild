@@ -205,8 +205,9 @@ header nav ul li
 	padding-left: 30px;
 	padding-right: 30px;
 	box-sizing: border-box;
+	cursor: pointer;
 }
-#navbar li:hover
+/*#navbar li:hover
 {
 	background-color: rgba(0, 0, 0, 0.5);
 	cursor: pointer;
@@ -215,7 +216,7 @@ header nav ul li
 {
 	background-color: rgba(255, 255, 255, 0.1);
 	cursor: pointer;
-}
+}*/
 #navbar .navbar-icon
 {
 	height: 30px;
