@@ -15,14 +15,27 @@ footer
 	height: 100%;
 	text-align: center;
 	box-sizing: border-box;
+	position: relative;
 
 	display: none;
 }
 
+#tutorial-container
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+#tutorial-container h5
+{
+	margin-bottom: 5px;
+}
+#tutorial-container #user-network
+{
+	width: 260px;
+}
+
 .area
 {
-	width: 500px;
-	height: 500px;
 	box-sizing: border-box;
 	border-radius: 50%;
 	margin: auto;
@@ -40,6 +53,12 @@ footer
 {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+.area#type_1
+{
+	width: 500px;
+	height: 500px;
 }
 
 .mini-avatar

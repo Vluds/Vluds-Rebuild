@@ -20,10 +20,10 @@
 	</div>
 
 	<div id="info-container">
-		<div id="error-container">
+		<div class="error-container">
 			<p>Erreur ...</p>
 		</div>
-		<div id="message-container">
+		<div class="message-container">
 			<p>Info ...</p>
 		</div>
 	</div>

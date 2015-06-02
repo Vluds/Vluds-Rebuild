@@ -57,6 +57,15 @@ h4
 	color: rgba(30, 30, 30, 1);
 }
 
+h5
+{
+	margin: 0;
+	font-family: 'OpenSans-Light';
+	font-size: 25px;
+	font-weight: normal;
+	color: rgba(255, 255, 255, 1);
+}
+
 p
 {
 	margin: 0;
@@ -342,12 +351,12 @@ section
 	margin: auto;
 }
 
-#error-container
+.error-container
 {
 	background-color: rgb(221, 121, 111);
 	border-radius: 15px 15px 15px 15px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	box-sizing: border-box;
@@ -355,17 +364,17 @@ section
 
 	display: none;
 }
-#error-container p
+.error-container p
 {
 	font-size: 0.9em;
 }
 
-#message-container
+.message-container
 {
 	background-color: rgb(75, 214, 150);
 	border-radius: 15px 15px 15px 15px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	box-sizing: border-box;
@@ -373,7 +382,7 @@ section
 
 	display: none;
 }
-#message-container p
+.message-container p
 {
 	font-size: 0.9em;
 }

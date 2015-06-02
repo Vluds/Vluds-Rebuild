@@ -164,6 +164,25 @@ class User
 		}
 	}
 
+	public static function getAccountState()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$AccountState = $newStaticBdd->select("completed", "users", "WHERE token LIKE '".self::getToken()."'");
+			$getAccountState = $newStaticBdd->fetch_array($AccountState);
+
+			if($getAccountState['completed'] == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+
 	public static function getPersonalAccounts()
 	{
 		$newStaticBdd = new BDD();
@@ -316,7 +335,7 @@ class User
 
 		unset($_COOKIE['token']);
 
-		setcookie("token", $token, time()+3600, "/");
+		setcookie("token", $token, time()+7200, "/");
 
 		$newStaticBdd->update("users", "token = '".$token."', time = '".time()."'", "WHERE id = '".$userId."'");
 

@@ -105,6 +105,8 @@
 			{
 				$dataArray['result'] = false;
 			}
+
+			return $dataArray;
 		}
 
 		if($action == "logUser")
@@ -125,11 +127,13 @@
 				}
 				else
 				{
+					$dataArray['reply'] = null;
 					$dataArray['result'] = false;
 				}
 			}
 			else
 			{
+				$dataArray['reply'] = null;
 				$dataArray['result'] = false;
 			}
 		}

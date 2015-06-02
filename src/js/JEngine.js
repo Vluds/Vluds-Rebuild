@@ -96,9 +96,9 @@ function fluxAccount()
 	var translationDuration = 500;
 	var rotationDuration = 1000;
 
-	var accounts = $('#flux-container .area#1').children('.mini-avatar');
+	var accounts = $('#flux-container .area#type_1').children('.mini-avatar');
 
-	var enumAccountDiv = $('#flux-container .area#1').children('.mini-avatar').size();
+	var enumAccountDiv = $('#flux-container .area#type_1').children('.mini-avatar').size();
 	console.log(enumAccountDiv);
 
 	$(accounts).animate({borderSpacing: translationRange}, {

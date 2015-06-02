@@ -132,12 +132,12 @@ function regUser()
 							$('#register-container #register-form').slideUp(200);
 							$('#register-container #accounts-container').animate({marginBottom: "20px"}, 200);
 
-							$('#register-container #info-container #error-container').slideUp(200);
-							$('#register-container #info-container #message-container p').html(data.reply).parent().slideDown(400);
+							$('#register-container #info-container .error-container').slideUp(200);
+							$('#register-container #info-container .message-container p').html(data.reply).parent().slideDown(400);
 						}
 						else
 						{
-							$('#register-container #info-container #error-container p').html(data.error).parent().slideDown(400);
+							$('#register-container #info-container .error-container p').html(data.error).parent().slideDown(400);
 						}
 
 					}, "json");
@@ -181,8 +181,8 @@ function logUser()
 			{
 				if(data.result == true)
 				{
-					$('#login-container #info-container #error-container').slideUp(200);
-					$('#login-container #info-container #message-container p').html(data.reply).parent().slideDown(400).delay(500).queue(function()
+					$('#login-container #info-container .error-container').slideUp(200);
+					$('#login-container #info-container .message-container p').html(data.reply).parent().slideDown(400).delay(500).queue(function()
 					{
 						loadHeader();
 						loadNavBar();
@@ -193,7 +193,7 @@ function logUser()
 				}
 				else
 				{
-					$('#login-container #info-container #error-container p').html(data.error).parent().slideDown(400);
+					$('#login-container #info-container .error-container p').html(data.error).parent().slideDown(400);
 				}
 
 			}, "json");
@@ -216,9 +216,8 @@ function logOut()
 		if(data.result == true)
 		{	
 			loadHeader();
-			loadNavBar();
-			navBarAction();
 			loadModel('home');
+			loadNavBar();
 			navBarAction();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");
@@ -239,12 +238,12 @@ function accountActivation(username, activationKey)
 		{
 			if(data.result == true)
 			{
-				$('#validation-container #info-container #error-container').fadeOut();
-				$('#validation-container #info-container #message-container p').html(data.reply).parent().fadeIn(400);
+				$('#validation-container #info-container .error-container').fadeOut();
+				$('#validation-container #info-container .message-container p').html(data.reply).parent().fadeIn(400);
 			}
 			else
 			{
-				$('#validation-container #info-container #error-container p').html(data.error).parent().fadeIn(400);
+				$('#validation-container #info-container .error-container p').html(data.error).parent().fadeIn(400);
 			}
 		}, "json");
 	});
