@@ -39,5 +39,9 @@
 		<h5>Upload terminé !</h5>
 		<p>Le telechargement de ton avatar s'est bien déroulé.</p>
 	</div>
+	<div id="upload-error" class="error-container">
+		<h5>Upload annulé !</h5>
+		<p>Le fichier n'est sûrement pas pris en compte.<br/>Vérifiez que le fichier est bien une image.</p>
+	</div>
 
 </div>

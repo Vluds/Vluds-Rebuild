@@ -249,6 +249,7 @@
 			else
 			{
 				$dataArray['error'] = "Executor.php: File not set !";
+				$dataArray['reply'] = null;
 				$dataArray['result'] = false;
 			}
 		}

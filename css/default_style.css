@@ -361,6 +361,7 @@ section
 	padding-bottom: 10px;
 	box-sizing: border-box;
 	margin-bottom: 10px;
+	margin: auto;
 
 	display: none;
 }

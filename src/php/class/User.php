@@ -490,14 +490,15 @@ class User
 
 					$dataArray['result'] = true;
 					$dataArray['error'] = null;
+					$dataArray['reply'] = "users/".User::getId()."/avatar/300_".$avatarId.".png";
 				}
 				else
 				{
 					$dataArray['result'] = false;
 					$dataArray['error'] = "User.php: Le chemin d'accès à l'avatar n'existe pas !";
+					$dataArray['reply'] = null;
 				}
-
-				$dataArray['reply'] = "users/".User::getId()."/avatar/300_".$avatarId.".png";
+				
 			}
 			else
 			{

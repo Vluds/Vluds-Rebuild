@@ -334,7 +334,7 @@ function uploadAvatar(files, avatarFile)
 
 		function readData(sData) 
 		{
-			if(sData.result == true && sData.reply != false)
+			if(sData.result == true && sData.reply != null)
 			{
 				$('#navbar #navbar-profil .account .avatar').fadeOut(300)
 				.queue(function()
@@ -357,13 +357,14 @@ function uploadAvatar(files, avatarFile)
 					.fadeIn(500);
 				}
 				
-			   	$('#profil-container .message-container').slideDown(600).delay(5000).slideUp(800);
+				$('#profil-container .error-container').slideUp(300);
+				$('#profil-container .message-container').slideDown(600).delay(5000).slideUp(800);
 			    console.log("avatar upload: done");
 			} 
 			else 
 			{
-			   	messageBox("Nous n'avons pas pu modifier votre avatar ... Veuillez réesayer avec un autre fichier.");
-			   	console.log("avatar upload: error");	    
+				$('#profil-container .error-container').slideDown(600);
+				console.log("avatar upload: error");
 			}
 
 			console.log("error: " + sData.error);
@@ -373,6 +374,7 @@ function uploadAvatar(files, avatarFile)
 	}
 	else
 	{
-		messageBox("Le fichier n'est pas une image !");
+		$('#profil-container .error-container').slideDown(600);
+		console.log("avatar upload: error");
 	}
 }
