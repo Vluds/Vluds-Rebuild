@@ -376,9 +376,10 @@ section
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	box-sizing: border-box;
 	margin-bottom: 10px;
+	margin: auto;
 
 	display: none;
 }

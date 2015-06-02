@@ -336,24 +336,28 @@ function uploadAvatar(files, avatarFile)
 		{
 			if(sData.result == true && sData.reply != false)
 			{
-				$('#sidebar #profil #avatar img').fadeOut(300)
-				.queue(function(){
-					$(this).attr("src", setJsPath + sData.reply)
-					.dequeue();
+				$('#navbar #navbar-profil .account .avatar').fadeOut(300)
+				.queue(function()
+				{
+					$(this).css({"background-image": "url("+sData.reply+")"});
+
+					$(this).dequeue();
 				})
 				.fadeIn(300);
 
 				if(history.state.page == "profil")
 				{
-					$('#profil-container #profil #avatar img').fadeOut(300)
-					.queue(function(){
-						$(this).attr("src", setJsPath + sData.reply)
-						.dequeue();
+					$('#profil-container #accounts-container .account .avatar').fadeOut(300)
+					.queue(function()
+					{
+						$(this).css({"background-image": "url("+sData.reply+")"});
+						
+						$(this).dequeue();
 					})
 					.fadeIn(500);
 				}
 				
-			    messageBox("Votre avatar à bien été modifié !");
+			   	$('#profil-container .message-container').slideDown(600).delay(5000).slideUp(800);
 			    console.log("avatar upload: done");
 			} 
 			else 

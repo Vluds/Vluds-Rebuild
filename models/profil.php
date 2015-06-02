@@ -28,14 +28,16 @@
 		</div>
 	</div>
 
-	<div id="text-container">
-
-	</div>
-
 	<div id="options-container">
 		<div onClick="selectAvatar()" class="button">
 			<p>Sélectionner un avatar</p>
 		</div>
 		<input id="avatar-upload" name="avatar-upload" accept="image/*" type="file">
 	</div>
+
+	<div id="upload-message" class="message-container">
+		<h5>Upload terminé !</h5>
+		<p>Le telechargement de ton avatar s'est bien déroulé.</p>
+	</div>
+
 </div>

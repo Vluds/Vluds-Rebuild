@@ -13,3 +13,14 @@
 {
 	display: none;
 }
+
+.button
+{
+	margin-top: 10px;
+}
+
+#upload-message
+{
+	width: 250px;
+	margin-top: 20px;
+}

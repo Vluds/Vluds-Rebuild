@@ -24,7 +24,7 @@
 							Nous vous enverrons un e-mail de confirmation de votre inscription.
 						</p>
 						<a href="http://rebuild.vluds.eu/index.php?page=validation&username=<?php echo $username;?>&activationKey=<?php echo $activationKey;?>" style="text-decoration: none;">
-							<div class="button" style="width: 160px;height: 45px;border-radius: 15px;background-color: transparent;border: 1px solid rgba(37, 199, 125, 1);line-height: 10px;box-sizing: border-box;margin: auto;cursor: pointer;overflow: hidden;">
+							<div class="button" style="width: 160px;height: 45px;border-radius: 15px;background-color: transparent;border: 1px solid rgba(37, 199, 125, 1);line-height: 10px;box-sizing: border-box;margin: auto;cursor: pointer;overflow: hidden;text-align: center;">
 								<p style="font-family: 'OpenSans-Light', Arial;color: rgb(37, 199, 125);font-size: 18px;">Valider</p>
 							</div>
 						</a>

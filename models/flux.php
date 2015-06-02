@@ -11,7 +11,7 @@
 		<div id="tutorial-container">
 			<div id="user-network" class="message-container">
 				<h5>Un peu seul ?</h5>
-				<p>C'est normal, tu es nouveau !<br/>Sélectionne les personnes que tu pourrais apprécier parmis ceux-ci :</p><br/>
+				<p>C'est normal, tu es nouveau !<br/>Sélectionne les personnes que tu pourrais apprécier parmis celles-ci :</p><br/>
 				<div onClick="" class="button">
 					<p>Continuer ►</p>
 				</div>
