@@ -90,10 +90,10 @@
 				$returnFunction = array();
 				$returnFunction = User::regUser($username, $password, $email);
 				$dataArray['error'] = $returnFunction['error'];
+				$dataArray['reply'] = $returnFunction['reply'];
 
 				if($returnFunction['result'] == true)	
 				{
-					$dataArray['reply'] = $returnFunction['reply'];
 					$dataArray['result'] = $returnFunction['result'];
 				}
 				else
@@ -105,8 +105,6 @@
 			{
 				$dataArray['result'] = false;
 			}
-
-			return $dataArray;
 		}
 
 		if($action == "logUser")
