@@ -304,6 +304,22 @@ function messageBox(title, message)
 
 	}, "json");
 }
+function addUserTag(tagName)
+{
+	$.post("src/php/executor.php", { action: "addUserTag", tagName: tagName}, function(data)
+	{
+		if(data.result)
+		{
+			$('#tutorial-container #user-tags-information #tag-input').val('');
+			console.log("added");
+		}
+		else
+		{
+			console.log("error:" + data.result);
+		}
+
+	}, "json");
+}
 
 function uploadAvatar(files, avatarFile)
 {

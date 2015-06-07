@@ -183,6 +183,50 @@ class User
 		}
 	}
 
+	public static function getUserTags()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$UserTags = $newStaticBdd->select("tag_id", "user_tags", "WHERE user_id LIKE '".self::getId()."'");
+
+			$userTags = "";
+
+			while($getUserTags = $newStaticBdd->fetch_array($UserTags))
+			{
+				$TagInfo = $newStaticBdd->select("name", "tags", "WHERE id LIKE '".$getUserTags['tag_id']."'");
+				$getTagInfo = $newStaticBdd->fetch_array($TagInfo);
+
+				ob_start();
+				include('../../includes/tag.php');
+				$userTags .= ob_get_contents();
+				ob_end_clean();
+			}
+
+			return $userTags;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	public static function getNumberUserTags()
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+			$UserTags = $newStaticBdd->select("*", "user_tags", "WHERE user_id LIKE '".self::getId()."'");
+			$countUserTags = $newStaticBdd->num_rows($UserTags);
+
+			return $countUserTags;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 	public static function getPersonalAccounts()
 	{
 		$newStaticBdd = new BDD();
@@ -340,6 +384,46 @@ class User
 		$newStaticBdd->update("users", "token = '".$token."', time = '".time()."'", "WHERE id = '".$userId."'");
 
 		return true;
+	}
+
+	public static function addUserTag($tagName)
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+
+			$Tags = $newStaticBdd->select("*", "tags", "WHERE name LIKE '".$tagName."'");
+			$isReg = $newStaticBdd->num_rows($Tags);
+
+			if($isReg <= 0)
+			{
+				$addTag = $newStaticBdd->insert("tags", "name", "'".$tagName."'");
+			}
+
+			$TagId = $newStaticBdd->select("id", "tags", "WHERE name LIKE '".$tagName."'");
+			$getTagId = $newStaticBdd->fetch_array($TagId);
+			
+			$UserTagId = $newStaticBdd->select("user_id, tag_id", "user_tags", "WHERE tag_id LIKE '".$getTagId['id']."'");
+			$isUserTagReg = $newStaticBdd->num_rows($UserTagId);
+
+			if($isUserTagReg == 1)
+			{
+				$dataArray["result"] = false;
+				$dataArray['error'] = "Ce tag à déjà été ajouté !";
+				$dataArray['reply'] = null;
+			}
+			else
+			{
+
+				$addUserTag = $newStaticBdd->insert("user_tags", "user_id, tag_id", "'".User::getId()."', '".$getTagId['id']."'");
+
+				$dataArray["result"] = true;
+				$dataArray['error'] = null;
+				$dataArray['reply'] = $tagName;
+			}
+
+			return $dataArray;
+		}
 	}
 
 	public static function checkActivationKey($username, $activationKey)

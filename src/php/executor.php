@@ -232,6 +232,32 @@
 			}
 		}
 
+		if($action == "addUserTag") 
+		{
+			if(isset($_POST['tagName']) AND !empty($_POST['tagName']))
+			{
+				$tagName = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['tagName']));
+
+				$returnTag = array();
+				$returnTag = User::addUserTag($tagName);
+				$dataArray['error'] = $returnTag['error'];
+
+				if($returnTag['result'] == true)
+				{
+					$dataArray['reply'] = $returnTag['reply'];
+					$dataArray['result'] = $returnTag['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['error'] = "executor.php: tagName empty or not set";
+			}
+		}
+
 		if($action == "uploadAvatar") 
 		{
 			if(isset($_FILES['avatarFile']) and !empty($_FILES['avatarFile']))
@@ -246,7 +272,7 @@
 			}
 			else
 			{
-				$dataArray['error'] = "Executor.php: File not set !";
+				$dataArray['error'] = "executor.php: File not set !";
 				$dataArray['reply'] = null;
 				$dataArray['result'] = false;
 			}
@@ -254,7 +280,7 @@
 	}
 	else
 	{
-		$dataArray['result'] = "Executor.php: POST NOT SET";
+		$dataArray['result'] = "executor.php: POST NOT SET";
 	}
 
 	echo json_encode($dataArray);

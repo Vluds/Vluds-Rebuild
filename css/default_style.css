@@ -301,6 +301,26 @@ section
 	box-sizing: border-box;
 }
 
+.tag
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	background-color: rgb(75, 214, 150);
+	border-radius: 5px;
+}
+.tag p
+{
+	color: rgb(255, 255, 255);
+}
+
 #accounts-container
 {
 	width: 100%;
@@ -589,4 +609,9 @@ input
 	color: rgba(30, 30, 30, 1);
 	min-width: 250px;
 	outline-style: none;
+}
+input.white
+{
+	background-color: rgb(245, 245, 245);
+	color:rgb(75, 214, 150)
 }

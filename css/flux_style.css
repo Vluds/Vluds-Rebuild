@@ -33,6 +33,15 @@ footer
 {
 	width: 260px;
 }
+#tutorial-container #user-tags-information
+{
+	width: 420px;
+}
+#tutorial-container #user-tags-information #tags-counter
+{
+	color: rgb(221, 121, 111);
+}
+
 
 .area
 {
@@ -60,6 +69,22 @@ footer
 	width: 500px;
 	height: 500px;
 }
+
+.area#type_1 #profil-container
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.area#type_1 #user-tags-container
+{
+	display: inline-block;
+	vertical-align: middle;
+	width: 75%;
+	margin: auto;
+	margin-top: -290px;
+}
+
 
 .mini-avatar
 {

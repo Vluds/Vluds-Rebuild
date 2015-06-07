@@ -208,6 +208,16 @@ $(document).on('change', '#profil-container #options-container #avatar-upload', 
     uploadAvatar(event.target.files, avatarFile);
 });
 
+$(document).on('keydown', '#tutorial-container #user-tags-information #tag-input', function(event) 
+{
+	var tagName = $(this).val();
+
+	if(event.keyCode == 32)
+	{
+		addUserTag(tagName);
+	}
+});
+
 /*$(document).on('keyup', '#register-form input', function()
 {
 	var inputAttr = $(this).attr("id");
