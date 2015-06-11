@@ -31,6 +31,17 @@ $(document).on('mouseenter', '#navbar li', function()
 	$(this).stop().animate({backgroundColor: "rgba(255, 255, 255, 0.1)"}, 400).animate({backgroundColor: "rgba(0, 0, 0, 0.5)"}, 50);
 });
 
+$(document).on('mouseenter', '.mini-avatar', function()
+{
+	$('.avatar', this).stop().animate({opacity: "0.2"}, 200);
+	$('.link-hover', this).stop().fadeIn(300);
+
+}).on('mouseleave', '.mini-avatar', function() 
+{
+	$('.avatar', this).stop().animate({opacity: "1"}, 300);
+	$('.link-hover', this).stop().fadeOut(200);
+});
+
 function showPopUp(name)
 {
 	showBackground();

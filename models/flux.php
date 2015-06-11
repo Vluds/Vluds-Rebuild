@@ -16,7 +16,7 @@
 					<h5>Un peu seul ?</h5>
 					<p>C'est normal, tu es nouveau !<br/>Sélectionne les personnes que tu pourrais apprécier parmis celles-ci :</p><br/>
 					<div onClick="" class="button">
-						<p>Continuer ►</p>
+						<p>Continuer</p>
 					</div>
 				</div>
 <?php

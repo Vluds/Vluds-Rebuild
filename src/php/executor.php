@@ -258,6 +258,32 @@
 			}
 		}
 
+		if($action == "linkUser") 
+		{
+			if(isset($_POST['userId']) AND !empty($_POST['userId']))
+			{
+				$userId = $newStaticBdd->real_escape_string(htmlspecialchars($_POST['userId']));
+
+				$returnLink = array();
+				$returnLink = User::linkUser($userId);
+				$dataArray['error'] = $returnLink['error'];
+
+				if($returnLink['result'] == true)
+				{
+					$dataArray['reply'] = $returnLink['reply'];
+					$dataArray['result'] = $returnLink['result'];
+				}
+				else
+				{
+					$dataArray['result'] = false;
+				}
+			}
+			else
+			{
+				$dataArray['error'] = "executor.php: tagName empty or not set";
+			}
+		}
+
 		if($action == "uploadAvatar") 
 		{
 			if(isset($_FILES['avatarFile']) and !empty($_FILES['avatarFile']))

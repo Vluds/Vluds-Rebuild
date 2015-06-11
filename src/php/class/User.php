@@ -426,6 +426,48 @@ class User
 		}
 	}
 
+	public static function linkUser($userId)
+	{
+		if(self::isLogged())
+		{
+			$newStaticBdd = new BDD();
+
+			$Link = $newStaticBdd->select("*", "links", "WHERE user_id_linker LIKE '".self::getId()."' AND user_id_linked LIKE '".$userId."'");
+			$isLinkReg = $newStaticBdd->num_rows($Link);
+
+			if($isLinkReg == 1)
+			{
+				$dataArray["result"] = false;
+				$dataArray['error'] = "Ce lien existe déjà !";
+				$dataArray['reply'] = null;
+			}
+			else
+			{
+				$UserLinked = $newStaticBdd->select("*", "users", "WHERE id LIKE '".$userId."'");
+				$isUserLinked = $newStaticBdd->num_rows($UserLinked);
+
+				if($isUserLinked == 1)
+				{
+					$getUserLinked = $newStaticBdd->fetch_array($UserLinked);
+
+					$addUserTag = $newStaticBdd->insert("links", "user_id_linker, user_id_linked", "'".User::getId()."', '".$userId."'");
+
+					$dataArray["result"] = true;
+					$dataArray['error'] = null;
+					$dataArray['reply'] = $getUserLinked['username'];
+				}
+				else
+				{
+					$dataArray["result"] = false;
+					$dataArray['error'] = 'Utilisateur introuvable';
+					$dataArray['reply'] = null;
+				}
+			}
+
+			return $dataArray;
+		}
+	}
+
 	public static function checkActivationKey($username, $activationKey)
 	{
 		$newStaticBdd = new BDD();

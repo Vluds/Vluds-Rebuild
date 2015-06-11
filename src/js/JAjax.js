@@ -218,7 +218,7 @@ function logOut()
 			loadHeader();
 			loadModel('home');
 			loadNavBar();
-			navBarAction();
+			closeNavBar();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");
 		}
@@ -304,6 +304,7 @@ function messageBox(title, message)
 
 	}, "json");
 }
+
 function addUserTag(tagName)
 {
 	$.post("src/php/executor.php", { action: "addUserTag", tagName: tagName}, function(data)
@@ -312,6 +313,27 @@ function addUserTag(tagName)
 		{
 			$('#tutorial-container #user-tags-information #tag-input').val('');
 			console.log("added");
+		}
+		else
+		{
+			console.log("error:" + data.result);
+		}
+
+	}, "json");
+}
+
+function linkUser(userId)
+{
+	$.post("src/php/executor.php", { action: "linkUser", userId: userId}, function(data)
+	{
+		if(data.result)
+		{
+			
+				joinCenter($("#user-"+ data.reply));
+
+			
+
+			console.log("linked !");
 		}
 		else
 		{
