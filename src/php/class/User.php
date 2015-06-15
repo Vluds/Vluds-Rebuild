@@ -257,7 +257,7 @@ class User
 			$dataArray['reply'] = null;
 		}
 
-		return $dataArray['reply'];
+		return $dataArray;
 	}
 	
 	public static function regUser($username, $password, $email)

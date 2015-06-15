@@ -85,7 +85,7 @@
 			$returnUserLink = array();
 			$returnUserLink = User::getPersonalAccounts();
 			
-			if($returnUserLink['error'] != null)
+			if($returnUserLink['error'] == null)
 			{
 				if($returnUserLink['result'] == true)
 				{

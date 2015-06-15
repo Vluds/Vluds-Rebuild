@@ -151,7 +151,11 @@ function animateFluxAccount()
 				$(this).css('-moz-transform','rotate('+now+'deg) translate(10em) rotate(-'+now+'deg)');
 				$(this).css('transform','rotate('+now+'deg) translate(10em) rotate(-'+now+'deg)');
 			}
-		}, 0).css('z-index','3');
+		}, 0)
+		.queue(function (next) { 
+			$(this).css('z-index', '3');
+			next(); 
+		});
 
 		i++;
 		d = d+degree;
