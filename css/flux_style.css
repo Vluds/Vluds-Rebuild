@@ -114,6 +114,7 @@ footer
 	width: 70px;
 	height: 70px;
 	background-size: cover;
+	margin: auto;
 }
 .mini-avatar .user-description
 {

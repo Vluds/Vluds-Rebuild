@@ -231,7 +231,7 @@ class User
 	{
 		$newStaticBdd = new BDD();
 
-		$UserLink = $newStaticBdd->select("*", "links", "WHERE user_id_linker LIKE '".self::getId()."'");
+		$UserLink = $newStaticBdd->select("*", "links", "WHERE user_id_linker LIKE '".self::getId()."' ORDER BY RAND()");
 		$countUserLink = $newStaticBdd->num_rows($UserLink);
 
 		if($countUserLink > 1)
@@ -253,7 +253,7 @@ class User
 		else
 		{
 			$dataArray['result'] = false;
-			$dataArray['error'] = "Aucun compte lié";
+			$dataArray['error'] = "getPersonalAccounts: Aucun compte lié";
 			$dataArray['reply'] = null;
 		}
 
@@ -451,7 +451,7 @@ class User
 			if($isLinkReg == 1)
 			{
 				$dataArray["result"] = false;
-				$dataArray['error'] = "Ce lien existe déjà !";
+				$dataArray['error'] = "linkUser: Ce lien existe déjà !";
 				$dataArray['reply'] = null;
 			}
 			else
@@ -463,16 +463,25 @@ class User
 				{
 					$getUserLinked = $newStaticBdd->fetch_array($UserLinked);
 
-					$addUserTag = $newStaticBdd->insert("links", "user_id_linker, user_id_linked", "'".User::getId()."', '".$userId."'");
+					if($getUserLinked['id'] != self::getId())
+					{
+						$addUserTag = $newStaticBdd->insert("links", "user_id_linker, user_id_linked", "'".User::getId()."', '".$userId."'");
 
-					$dataArray["result"] = true;
-					$dataArray['error'] = null;
-					$dataArray['reply'] = $getUserLinked['username'];
+						$dataArray["result"] = true;
+						$dataArray['error'] = null;
+						$dataArray['reply'] = $getUserLinked['username'];
+					}
+					else
+					{
+						$dataArray["result"] = false;
+						$dataArray['error'] = "linkUser: Vous ne pouvez pas vous lier vous-même ! C'est logique !";
+						$dataArray['reply'] = null;
+					}
 				}
 				else
 				{
 					$dataArray["result"] = false;
-					$dataArray['error'] = 'Utilisateur introuvable';
+					$dataArray['error'] = 'linkUser: Utilisateur introuvable';
 					$dataArray['reply'] = null;
 				}
 			}

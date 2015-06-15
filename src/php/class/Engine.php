@@ -114,7 +114,7 @@ class Engine
 	{
 		$newStaticBdd = new BDD();
 
-		$UserInfo = $newStaticBdd->select("*", "users", "LIMIT 0, 10");
+		$UserInfo = $newStaticBdd->select("*", "users", "ORDER BY RAND() LIMIT 0, 10");
 
 		while($getUserInfo = $newStaticBdd->fetch_array($UserInfo))
 		{

@@ -85,21 +85,16 @@
 			$returnUserLink = array();
 			$returnUserLink = User::getPersonalAccounts();
 			
-			if($returnUserLink['error'] == null)
-			{
+			
 				if($returnUserLink['result'] == true)
 				{
 					echo $returnUserLink['reply'];
+					echo $returnUserLink['error'];
 				}
 				else
 				{
 					echo Engine::getAccounts();
 				}
-			}
-			else
-			{
-				echo $returnUserLink['error'];
-			}
 
 ?>
 		</div>

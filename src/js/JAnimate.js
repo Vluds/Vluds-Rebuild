@@ -80,13 +80,17 @@ $(document).on('mouseenter', '#navbar li', function()
 
 $(document).on('mouseenter', '.mini-avatar', function()
 {
-	$('.avatar', this).stop().animate({opacity: "0.2"}, 200);
+	$('.avatar', this).stop().animate({opacity: "0.2", height: 75, width: 75}, 200);
 	$('.link-hover', this).stop().fadeIn(300);
+
+	$(this).stop().animate({height: 75, width: 75}, 100);
 
 }).on('mouseleave', '.mini-avatar', function() 
 {
-	$('.avatar', this).stop().animate({opacity: "1"}, 300);
+	$('.avatar', this).stop().animate({opacity: "1", height: 70, width: 70}, 300);
 	$('.link-hover', this).stop().fadeOut(200);
+
+	$(this).stop().animate({height: 70, width: 70}, 200);
 });
 
 function showPopUp(name)
