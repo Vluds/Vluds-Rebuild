@@ -80,7 +80,28 @@
 				}
 ?>
 			</div>
-			<?php echo User::getPersonalAccounts();?>
+<?php 
+
+			$returnUserLink = array();
+			$returnUserLink = User::getPersonalAccounts();
+			
+			if($returnUserLink['error'] != null)
+			{
+				if($returnUserLink['result'] == true)
+				{
+					echo $returnUserLink['reply'];
+				}
+				else
+				{
+					echo Engine::getAccounts();
+				}
+			}
+			else
+			{
+				echo $returnUserLink['error'];
+			}
+
+?>
 		</div>
 <?php
 	}

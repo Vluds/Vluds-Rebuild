@@ -18,6 +18,53 @@ $(document).on('mouseenter', '.button', function()
 	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
 });
 
+$(document).on('mouseenter', '.check.unactivated', function()
+{
+	$('.check-action', this).stop().animate({borderSpacing: 5, backgroundColor: "rgb(75, 214, 150)"}, {
+		duration: 200,
+		step: function(now) {
+			$(this).css('box-shadow','0px 0px 0px '+now+'px rgb(255, 255, 255) inset');
+		}
+	}, 0);
+	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
+
+}).on('mouseleave', '.check.unactivated', function() 
+{
+	$('.check-action', this).stop().animate({borderSpacing: 0, backgroundColor: "transparent"}, {
+		duration: 200,
+		step: function(now) {
+			$(this).css('box-shadow','0px 0px 0px '+now+'px rgb(255, 255, 255) inset'); 
+		}
+	}, 0);
+	$('p', this).stop().animate({color: "rgba(30, 30, 30, 0.7)"}, 200);
+}).on('click', '.check', function() 
+{
+	if($(this).hasClass("unactivated"))
+	{
+		$(this).removeClass('unactivated');
+		$(this).addClass('activated');
+
+		$('.check-action', this).stop().animate({borderSpacing: 3, backgroundColor: "rgb(75, 214, 150)"}, {
+			duration: 300,
+			step: function(now) {
+				$(this).css('box-shadow','0px 0px 0px '+now+'px rgb(255, 255, 255) inset'); 
+			}
+		}, 0);
+	}
+	else
+	{
+		$(this).removeClass('activated');
+		$(this).addClass('unactivated');
+
+		$('.check-action', this).stop().animate({borderSpacing: 0, backgroundColor: "transparent"}, {
+			duration: 200,
+			step: function(now) {
+				$(this).css('box-shadow','0px 0px 0px '+now+'px rgb(255, 255, 255) inset'); 
+			}
+		}, 0);
+	}
+});
+
 $(document).on('mouseenter', '#navbar li', function()
 {
 	$(this).stop().animate({backgroundColor: "rgba(0, 0, 0, 0.5)"}, 200);

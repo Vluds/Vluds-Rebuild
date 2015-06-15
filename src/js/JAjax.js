@@ -219,6 +219,7 @@ function logOut()
 			loadModel('home');
 			loadNavBar();
 			closeNavBar();
+			closePopUp();
 
 			messageBox("Attention", "Vous êtes maintenant déconnecté !");
 		}
@@ -329,15 +330,37 @@ function linkUser(userId)
 		if(data.result)
 		{
 			
-				joinCenter($("#user-"+ data.reply));
+			$("#user-"+ data.reply).fadeOut(400).queue(function()
+			{
+				$(this).remove();
+				recalibrateFluxAccount();
 
+				$(this).dequeue();
+			});
 			
-
 			console.log("linked !");
 		}
 		else
 		{
 			console.log("error:" + data.result);
+		}
+
+	}, "json");
+}
+
+function completeAccount()
+{
+	$.post("src/php/executor.php", { action: "completeAccount"}, function(data)
+	{
+		if(data.result)
+		{
+			
+			
+			console.log("account completed !");
+		}
+		else
+		{
+			console.log("error:" + data.error);
 		}
 
 	}, "json");

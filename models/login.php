@@ -36,6 +36,9 @@
 			<li><input id="password-input" name="password" type="password" placeholder="Mot de passe"></li>
 			<span class="info-form-input"><span class="left-arrow"></span><p></p></span>
 		</ul>
+		<!--<ul>
+			<li><div class="check unactivated"><div class="check-action"></div><div class="check-text"><p>Se souvenir de moi</p></div></div></li>
+		</ul>-->
 		<ul id="submit-container">
 			<div onClick="logUser()" class="button">
 				<p>Connexion</p>

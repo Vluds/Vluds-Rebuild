@@ -231,17 +231,30 @@ class User
 	{
 		$newStaticBdd = new BDD();
 
-		$UserInfo = $newStaticBdd->select("*", "users", "ORDER BY RAND() LIMIT 0, 10");
+		$UserLink = $newStaticBdd->select("*", "links", "WHERE user_id_linker LIKE '".self::getId()."'");
+		$countUserLink = $newStaticBdd->num_rows($UserLink);
 
-		while($getUserInfo = $newStaticBdd->fetch_array($UserInfo))
+		if($countUserLink > 1)
 		{
-			if($getUserInfo['id'] != User::getId())
+			while($getUserLinkInfo = $newStaticBdd->fetch_array($UserLink))
 			{
+				$UserInfo = $newStaticBdd->select("*", "users", "WHERE id LIKE '".$getUserLinkInfo['user_id_linked']."'");
+				$getUserInfo = $newStaticBdd->fetch_array($UserInfo);
+
 				ob_start();
 				include('../../includes/account.php');
 				$dataArray['reply'] .= ob_get_contents();
 				ob_end_clean();
 			}
+
+			$dataArray['result'] = true;
+			$dataArray['error'] = null;
+		}
+		else
+		{
+			$dataArray['result'] = false;
+			$dataArray['error'] = "Aucun compte lié";
+			$dataArray['reply'] = null;
 		}
 
 		return $dataArray['reply'];
@@ -281,7 +294,7 @@ class User
 
 				$passwordHash = hash('sha256', $password).$salt;
 
-				$colorUser = mt_rand(0, 5);
+				$colorUser = mt_rand(0, 4);
 
 				$activationKey = self::randomSalt(25);
 

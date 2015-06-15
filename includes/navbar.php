@@ -37,5 +37,5 @@
 
 <div id="navbar-bottom">
 	<div class="navbar-separator"></div>
-	<li onClick="logOut()"><p>Déconnexion</p></li>
+	<li onClick="checkInstantLogOut()"><p>Déconnexion</p></li>
 </div>

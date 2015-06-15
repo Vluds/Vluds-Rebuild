@@ -143,6 +143,7 @@
 		<div id="background-container">
 			<div id="close-background"></div>
 			<?php include('includes/cookiesPrivacy-box.php');?>
+			<?php include('includes/comfirmLogout-box.php');?>
 		</div>
 
 		<!--JQuery Scripts-->

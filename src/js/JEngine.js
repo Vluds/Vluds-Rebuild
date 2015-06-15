@@ -67,6 +67,29 @@ function AcceptCookies()
 	closePopUp();
 }
 
+function checkInstantLogOut()
+{
+	var cookieValue = getCookie('InstantLogOut');
+
+	if(cookieValue != 1)
+	{
+		showPopUp('comfirmLogout');
+	}
+	else
+	{
+		logOut();
+	}
+}
+
+function InstantLogOut()
+{
+	var today = new Date(), expires = new Date();
+	expires.setTime(today.getTime() + (365*24*60*60*1000));
+	document.cookie = "InstantLogOut =" + encodeURIComponent(1) + ";expires=" + expires.toGMTString();
+
+	closePopUp();
+}
+
 function getCookie(cookieName) 
 {
     var oRegex = new RegExp("(?:; )?" + cookieName + "=([^;]*);?");
@@ -128,7 +151,7 @@ function animateFluxAccount()
 				$(this).css('-moz-transform','rotate('+now+'deg) translate(10em) rotate(-'+now+'deg)');
 				$(this).css('transform','rotate('+now+'deg) translate(10em) rotate(-'+now+'deg)');
 			}
-		}, 0);
+		}, 0).css('z-index','3');
 
 		i++;
 		d = d+degree;
