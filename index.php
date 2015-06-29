@@ -52,7 +52,7 @@
 		<meta property="og:description" content="Réseau social pour les personnes créatives. Venez découvrir des créations, rencontrez des personnes, discutez avec elles et partagez !" />
 		<meta property="og:url" content="<?php echo URL;?>" />
 		<meta property="og:site_name" content="vluds" />
-		<meta property="og:image" content="<?php echo URL.IMG;?>preview.jpg" />
+		<meta property="og:image" content="<?php echo URL.IMG;?>preview.png" />
 
 		<!-- Facebook spec -->
 		<meta property="article:publisher" content="<?php echo FACEBOOK;?>" />
@@ -62,7 +62,7 @@
 		<meta property="twitter:site" content="@vluds_" />
 		<meta property="twitter:domain" content="vluds" />
 		<meta property="twitter:creator" content="@vluds_" />
-		<meta property="twitter:image" content="<?php echo URL.IMG;?>preview.jpg" />
+		<meta property="twitter:image" content="<?php echo URL.IMG;?>preview.png" />
 		<meta property="twitter:title" content="Vluds - Be more social." />
 		<meta property="twitter:description" content="Réseau social pour les personnes créatives. Venez découvrir des créations, rencontrez des personnes, discutez avec elles et partagez !" />
 		<meta property="twitter:url" content="<?php echo TWITTER;?>" />

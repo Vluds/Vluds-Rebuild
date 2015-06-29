@@ -1,12 +1,69 @@
-#profil-container
+#user-profil-container
 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: auto;
-	width: 500px;
+	width: 400px;
+	height: 400px;
 	text-align: center;
+	position: relative;
+	box-sizing: border-box;
 
 	display: none;
+}
+
+#user-profil-container #accounts-container
+{
+	margin-top: 30px;
+}
+
+#user-profil-container #accounts-container #hover-avatar
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.3);
+	background-image: url('../img/plus.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 30%;
+	border-radius: 50%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	cursor: pointer;
+
+	display: none;
+}
+#user-profil-container #accounts-container .account
+{
+	z-index: 0;
+}
+
+#user-profil-container #banner-profil
+{
+	background-image: url('../img/background_3.png');
+	background-position: center center;
+	background-size: cover;
+	border: 3px solid white;
+	border-radius: 7px;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+#user-profil-container #banner-profil #banner-hover
+{
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 7px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
 }
 
 #avatar-upload

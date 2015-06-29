@@ -10,7 +10,7 @@ $(document).on('mouseenter', '.button', function()
 
 }).on('mouseleave', '.button', function() 
 {
-	$(this).stop().animate({backgroundColor: "rgb(245, 245, 245)"}, 400);
+	$(this).stop().animate({backgroundColor: "transparent"}, 400);
 	$('p', this).stop().animate({color: "rgb(75, 214, 150)"}, 200);
 }).on('click', '.button', function() 
 {
@@ -76,6 +76,15 @@ $(document).on('mouseenter', '#navbar li', function()
 }).on('click', '#navbar li', function() 
 {
 	$(this).stop().animate({backgroundColor: "rgba(255, 255, 255, 0.1)"}, 400).animate({backgroundColor: "rgba(0, 0, 0, 0.5)"}, 50);
+});
+
+$(document).on('mouseenter', '.avatar', function()
+{
+	$('#hover-avatar', this).stop().fadeIn(300);
+
+}).on('mouseleave', '.avatar', function() 
+{
+	$('#hover-avatar', this).stop().fadeOut(200);
 });
 
 $(document).on('mouseenter', '.mini-avatar', function()

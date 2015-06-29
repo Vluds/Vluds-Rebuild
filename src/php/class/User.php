@@ -432,7 +432,13 @@ class User
 
 				$dataArray["result"] = true;
 				$dataArray['error'] = null;
-				$dataArray['reply'] = $tagName;
+
+				$getTagInfo['name'] = $tagName;
+
+				ob_start();
+				include("../../includes/tag.php");
+				$dataArray['reply'] .= ob_get_contents();
+				ob_end_clean();
 			}
 
 			return $dataArray;

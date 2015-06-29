@@ -314,6 +314,30 @@ function addUserTag(tagName)
 		{
 			$('#tutorial-container #user-tags-information #tag-input').val('');
 			console.log("added");
+			return true;
+		}
+		else
+		{
+			console.log("error:" + data.result);
+			return false;
+		}
+
+	}, "json");
+}
+
+function addUserTagTutorial(tagName)
+{
+	$.post("src/php/executor.php", { action: "addUserTag", tagName: tagName}, function(data)
+	{
+		if(data.result)
+		{
+			$('#tutorial-container #user-tags-information #tag-input').val('');
+			console.log("added");
+			$("#user-tags-container").append(data.reply);
+
+			var tagCounter = $("#tags-counter").html();
+			tagCounter--;
+			$("#tags-counter").html(tagCounter);
 		}
 		else
 		{
@@ -408,7 +432,7 @@ function uploadAvatar(files, avatarFile)
 
 				if(history.state.page == "profil")
 				{
-					$('#profil-container #accounts-container .account .avatar').fadeOut(300)
+					$('#user-profil-container #accounts-container .account .avatar').fadeOut(300)
 					.queue(function()
 					{
 						$(this).css({"background-image": "url("+sData.reply+")"});
@@ -418,13 +442,13 @@ function uploadAvatar(files, avatarFile)
 					.fadeIn(500);
 				}
 				
-				$('#profil-container .error-container').slideUp(300);
-				$('#profil-container .message-container').slideDown(600).delay(5000).slideUp(800);
+				$('#user-profil-container .error-container').slideUp(300);
+				$('#user-profil-container .message-container').slideDown(600).delay(5000).slideUp(800);
 			    console.log("avatar upload: done");
 			} 
 			else 
 			{
-				$('#profil-container .error-container').slideDown(600);
+				$('#user-profil-container .error-container').slideDown(600);
 				console.log("avatar upload: error");
 			}
 
@@ -435,7 +459,7 @@ function uploadAvatar(files, avatarFile)
 	}
 	else
 	{
-		$('#profil-container .error-container').slideDown(600);
+		$('#user-profil-container .error-container').slideDown(600);
 		console.log("avatar upload: error");
 	}
 }

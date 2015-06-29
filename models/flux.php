@@ -27,7 +27,7 @@
 ?>
 			<div id="user-tags-information" class="message-container">
 				<h5>Hé attends !</h5>
-				<p>Avant de commencer, ajoute quelques mot-clé à ton profil.<br/>Cela permetra de te liér à des personnes ayant les memes centres d'interet que toi. 
+				<p>Avant de commencer, ajoute quelques mots-clés à ton profil.<br/>Cela permetra de te liér à des personnes ayant les memes centres d'interet que toi.<br/>
 <?php
 			if(User::getNumberUserTags() >= 7)
 			{
@@ -47,7 +47,7 @@
 			}
 ?>
 				<span id="tags-counter"><?php echo 10 - User::getNumberUserTags();?></span>.<br/><br/></p>
-				<input id="tag-input" name="tag" class="white" type="text" placeholder="Appuie espace pour valider">
+				<input id="tag-input" name="tag" class="white" type="text" placeholder="Espace pour valider">
 			</div>
 <?php
 		}
@@ -126,9 +126,9 @@
 <?php				
 					}
 ?>
-					</div>
-					<div id="user-tags-container">
-						<?php echo User::getUserTags();?>
+						<div id="user-tags-container">
+							<?php echo User::getUserTags();?>
+						</div>
 					</div>
 				</div>
 			</div>

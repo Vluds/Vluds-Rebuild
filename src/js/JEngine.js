@@ -281,10 +281,10 @@ function closeNavBar()
 
 function selectAvatar()
 {
-	$("#profil-container #options-container #avatar-upload").click();
+	$("#user-profil-container #options-container #avatar-upload").click();
 }
 
-$(document).on('change', '#profil-container #options-container #avatar-upload', function(event) 
+$(document).on('change', '#user-profil-container #options-container #avatar-upload', function(event) 
 {
 	var avatarFile = $(this).val();
 
@@ -297,7 +297,7 @@ $(document).on('keydown', '#tutorial-container #user-tags-information #tag-input
 
 	if(event.keyCode == 32)
 	{
-		addUserTag(tagName);
+		addUserTagTutorial(tagName);
 	}
 });
 

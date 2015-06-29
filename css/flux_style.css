@@ -35,7 +35,11 @@ footer
 }
 #tutorial-container #user-tags-information
 {
-	width: 420px;
+	width: 270px;
+}
+#tutorial-container #user-tags-information #tag-input
+{
+	width: 220px;
 }
 #tutorial-container #user-tags-information #tags-counter
 {
@@ -78,11 +82,9 @@ footer
 
 .area#type_1 #user-tags-container
 {
-	display: inline-block;
-	vertical-align: middle;
 	width: 75%;
 	margin: auto;
-	margin-top: -290px;
+	margin-top: 20px;
 }
 
 
