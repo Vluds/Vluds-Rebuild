@@ -89,10 +89,10 @@ $(document).on('mouseenter', '.avatar', function()
 
 $(document).on('mouseenter', '.mini-avatar', function()
 {
-	$('.avatar', this).stop().animate({opacity: "0.2", height: 75, width: 75}, 200);
+	$('.avatar', this).stop().animate({opacity: "0.2"/*, height: 75, width: 75*/}, 200);
 	$('.link-hover', this).stop().fadeIn(300);
 
-	$(this).stop().animate({height: 75, width: 75}, 100);
+	/*$(this).stop().animate({height: 75, width: 75}, 100);*/
 
 }).on('mouseleave', '.mini-avatar', function() 
 {
